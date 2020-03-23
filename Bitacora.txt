@@ -1,8 +1,11 @@
+23 de marzo de 2020
+Se cre贸 el MER.
+Se cre贸 la BD.
 
+Tareas pendientes.
 El tipo de usuario: Profesor, tutor, estudiante; deben ser tenidos en cuenta en el formulario.
-
-
 El tipo de modalidad: Presencial, distancia o virtual; deben ser tenidos en cuenta en el formulario.
+El tipo de estado de atenci贸n: ?? ?? deben ser tenidos en cuenta en el formulario.
+El tipo de estado de remisi贸n: ?? ?? deben ser tenidos en cuenta en el formulario.
 
-El tipo de estado de atenci髇: ?? ?? deben ser tenidos en cuenta en el formulario.
-El tipo de estado de remisi髇: ?? ?? deben ser tenidos en cuenta en el formulario.
+
