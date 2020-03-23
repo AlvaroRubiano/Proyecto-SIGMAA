@@ -1,0 +1,8 @@
+
+El tipo de usuario: Profesor, tutor, estudiante; deben ser tenidos en cuenta en el formulario.
+
+
+El tipo de modalidad: Presencial, distancia o virtual; deben ser tenidos en cuenta en el formulario.
+
+El tipo de estado de atención: ?? ?? deben ser tenidos en cuenta en el formulario.
+El tipo de estado de remisión: ?? ?? deben ser tenidos en cuenta en el formulario.
