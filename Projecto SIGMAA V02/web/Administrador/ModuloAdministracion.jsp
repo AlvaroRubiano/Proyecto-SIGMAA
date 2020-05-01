@@ -85,18 +85,37 @@
                 
                 <div class="container">
                     <div class="row justify-content-md-center">
-                      <div class="col col-lg-2">
+                      <div class="col-lg-2">
                             <a class="nav-link" href="ConsultaCampus.jsp">
-                                <img src="../Imagenes/IconCampus.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                                <img src="../Imagenes/Campus.svg" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>   
                       </div>
-                      <div class="col-md-auto">
-                        Icono 2
+                      <div class="col-lg-2">
+                            <a class="nav-link" href="ConsultaFacultades.jsp">
+                                <img src="../Imagenes/Facultades.svg" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                            </a>
                       </div>
-                      <div class="col col-lg-2">
-                        Icono 1
+                      <div class="col-lg-2">
+                            <a class="nav-link" href="ConsultaMaterias.jsp">
+                                <img src="../Imagenes/Materias.svg" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                            </a>
                       </div>
-                    </div>  
+                    </div>
+                    <div class="row justify-content-md-center">
+                      <div class="col-lg-2">
+                            <a class="nav-link" href="ConsultaTutores.jsp">
+                                <img src="../Imagenes/Tutores.svg" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                            </a>   
+                      </div>
+                      <div class="col-lg-2">
+                            <a class="nav-link" href="ConsultaEstudiantes.jsp">
+                                <img src="../Imagenes/Estudiantes.svg" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                            </a>
+                      </div>
+                      <div class="col-lg-2">
+                            Empty
+                      </div>
+                    </div>
                 </div>           
                 
             </div>
