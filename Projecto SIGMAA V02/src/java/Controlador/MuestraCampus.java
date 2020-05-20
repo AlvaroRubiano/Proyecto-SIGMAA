@@ -41,12 +41,12 @@ public class MuestraCampus {
         String htmlcode = "";
         
         GestionesCampus mnc = new GestionesCampus();
-                       
+        
         for (Campus c : mnc.getCampus()) {
-            htmlcode += "<option>"+c.getIdentificador()+"-"+c.getNombre_campus()+"</option> ";
+                       
+            htmlcode += "<option value='"+c.getIdentificador()+"'>"+c.getNombre_campus()+"</option> ";
             
         }return htmlcode;
-        
         
     }
     

@@ -3,9 +3,14 @@ package org.apache.jsp.Administrador;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import Controlador.MuestraFacultades;
 import Controlador.MuestraCampus;
+import Clases.FacultadCampus;
+import Clases.Campus;
+import Modelo.GestionesFacultades;
+import Modelo.GestionesCampus;
 
-public final class CrearFacultad_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class CrearProgramas_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -47,6 +52,12 @@ public final class CrearFacultad_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
 
     HttpSession objetoSession = request.getSession(false);
     String usuario = (String)objetoSession.getAttribute("UsuarioLogeado");
@@ -59,10 +70,9 @@ public final class CrearFacultad_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Crear Facultad</title>\n");
+      out.write("        <title>Crear programas académicos</title>\n");
       out.write("        <link rel=\"stylesheet\" href=\"../css/bootstrap.css\" type=\"text/css\">\n");
       out.write("        <link rel=\"stylesheet\" href=\"../css/misestilos.css\" type=\"text/css\">\n");
-      out.write("        <script src=\"\"></script>\n");
       out.write("        <script>\n");
       out.write("            window.addEventListener('load', function (){\n");
       out.write("    \n");
@@ -87,8 +97,24 @@ public final class CrearFacultad_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("                }\n");
       out.write("            );\n");
       out.write("        </script>\n");
-      out.write("        \n");
-      out.write("        \n");
+      out.write("        <script>\n");
+      out.write("            window.addEventListener('load', function uno (){\n");
+      out.write("                var select = document.getElementById('idcampus');\n");
+      out.write("                        \n");
+      out.write("                select.addEventListener('change',function uno(){\n");
+      out.write("                /* Para obtener el valor */\n");
+      out.write("                    var selectedOption = this.options[select.selectedIndex];\n");
+      out.write("                    //alert(selectedOption.value);\n");
+      out.write("                    var xxx = selectedOption.value;\n");
+      out.write("                    //window.location.replace(\"CrearProgramas.jsp?xxx=\" + selectedOption.value);                   \n");
+      out.write("                } \n");
+      out.write("                  \n");
+      out.write("                );\n");
+      out.write("            }\n");
+      out.write("            );\n");
+      out.write("            \n");
+      out.write("        </script>\n");
+      out.write("                  \n");
       out.write("        \n");
       out.write("    </head>\n");
       out.write("    <body>\n");
@@ -135,34 +161,71 @@ public final class CrearFacultad_jsp extends org.apache.jasper.runtime.HttpJspBa
       out.write("\n");
       out.write("    <div class=\"card-body\" id=\"body_administrador\">\n");
       out.write("        <div class=\"card text-center\">\n");
-      out.write("            <h1>Crear campus universitarios o sedes</h1>\n");
+      out.write("            <h1>Crear programas académicos</h1>\n");
       out.write("        </div>       \n");
       out.write("        \n");
       out.write("        <div class=\"container\">\n");
       out.write("            <div class=\"row justify-content-md-center\">\n");
       out.write("                <div class=\"col-sm-4\">\n");
-      out.write("                    <form action=\"../GenerarFacultad\" method=\"post\" id=\"formularioCrear\" class=\"needs-validation\" novalidate>\n");
+      out.write("                    \n");
       out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label for=\"validationCustom01\">Nombre de la Facultad</label>\n");
-      out.write("                            <input type=\"text\" class=\"form-control\" id=\"nombreCrearFacultad\" name=\"nombreFacultad\" required>\n");
-      out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <select class=\"custom-select\" id=\"idcampus\" name=\"tipo\" required>\n");
-      out.write("                                <option selected disabled value=\"\">Identifique la sede a la que pertenece</option>\n");
-      out.write("                                ");
+      out.write("                            <label for=\"validationCustom01\">Seleccione el campus al que pertenece la facultad</label>\n");
+      out.write("                                <select class=\"custom-select\" id=\"idcampus\" name=\"tipo\" onchange=\"this.form['valor'].value=this.value\" required>\n");
+      out.write("                                <option selected >Seleccione...</option>\n");
+      out.write("                                    ");
  MuestraCampus mc = new MuestraCampus(); 
       out.write("\n");
-      out.write("                                ");
+      out.write("                                    ");
       out.print( mc.getNombreCampus() );
       out.write("\n");
+      out.write("                                </select>                                                \n");
+      out.write("                        </div>\n");
+      out.write("                                ");
+ 
+                                    String htmlcode2 = "";
+                                    
+                                    int i = 25;
+                                    
+                                    int xxx = Integer.parseInt(request.getParameter("xxx"));
+                                    
+                                    GestionesFacultades glf = new GestionesFacultades(); 
+                                        for (FacultadCampus fc : glf.getFacultadCampus()) {
+                                            if(fc.getId_campus() == xxx ) {
+                                                htmlcode2 += "<option value='"+fc.getId_facultad()+"'>"+fc.getId_facultad()+"->"+fc.getNombre_facultad()+"</option> ";
+                                            }
+                                        }
+                                
+      out.write("                          \n");
+      out.write("                                                             \n");
+      out.write("                                \n");
+      out.write("                        <div class=\"form-group\">\n");
+      out.write("                            <label for=\"validationCustom01\">Seleccione la facultad a la que pertenece el programa</label>\n");
+      out.write("                            <select class=\"custom-select\" id=\"idfacultad\" name=\"tipo\" required>\n");
+      out.write("                                <option selected >Seleccione...</option>\n");
+      out.write("                                ");
+      out.print( htmlcode2 );
+      out.write("                                \n");
       out.write("                            </select>                                                \n");
       out.write("                        </div>\n");
+      out.write("                        \n");
+      out.write("                           \n");
+      out.write("                            \n");
       out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label for=\"validationCustom01\">Identificador de la sede o campus</label>\n");
-      out.write("                            <input type=\"text\" class=\"form-control\" id=\"direccionCrearCampus\" name=\"idCampus\" required>\n");
+      out.write("                            <label for=\"validationCustom01\">Digite el nombre del programa</label>\n");
+      out.write("                            <input type=\"text\" class=\"form-control\" id=\"nombreCrearFacultad\" name=\"nombreFacultad\" required>\n");
       out.write("                        </div>\n");
+      out.write("                            \n");
+      out.write("                        <div class=\"form-group\">\n");
+      out.write("                            <select class=\"custom-select\" id=\"idcampus\" name=\"tipo\" required>\n");
+      out.write("                                <option selected disabled>Seleccione la la modalidad del programa</option>\n");
+      out.write("                                <option>Presencial</option>\n");
+      out.write("                                <option>Virtual</option>\n");
+      out.write("                                <option>Distancia</option>\n");
+      out.write("                            </select>                                                \n");
+      out.write("                        </div>\n");
+      out.write("                            \n");
       out.write("                        <button class=\"btn btn-primary\" type=\"button\" id=\"btnformularioCrear\">Guardar</button>\n");
-      out.write("                    </form>\n");
+      out.write("                    \n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </div>       \n");

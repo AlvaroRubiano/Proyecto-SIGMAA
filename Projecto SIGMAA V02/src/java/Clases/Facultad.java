@@ -6,7 +6,8 @@ package Clases;
  * @author Alvaro Rubiano
  */
 public class Facultad {
-
+  
+    private int identificador;
     private String nombre_facultad;
     private int id_campus;
     
@@ -14,11 +15,25 @@ public class Facultad {
         
     }    
     
-    public Facultad(String nombre_facultad, int id_campus) {
+    public Facultad(int identificador, String nombre_facultad, int id_campus) {
+        this.identificador = identificador;
         this.nombre_facultad = nombre_facultad;
         this.id_campus = id_campus;
     }
     
+    /**
+     * @return the identificador
+     */
+    public int getIdentificador() {
+        return identificador;
+    }
+
+    /**
+     * @param identificador the identificador to set
+     */
+    public void setIdentificador(int identificador) {
+        this.identificador = identificador;
+    }
     
     /**
      * @return the nombre_facultad

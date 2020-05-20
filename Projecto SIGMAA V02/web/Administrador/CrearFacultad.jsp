@@ -21,7 +21,30 @@
         <title>Crear Facultad</title>
         <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
         <link rel="stylesheet" href="../css/misestilos.css" type="text/css">
-        <script src="../js/misScripts.js"></script>
+        <script>
+            window.addEventListener('load', function (){
+    
+            document.getElementById('btnformularioCrear').addEventListener('click', function (){
+            var nombrefacultad =  document.getElementById('nombreCrearFacultad').value;
+            var idcampus = document.getElementById('idcampus').value;
+                        
+            var confirmacion = false;
+         
+            if(nombrefacultad.length > 0 && idcampus.length > 0 ){
+             confirmacion = true;
+            }
+         
+            if(confirmacion){
+            alert('La facultad fué creada con exito.');
+            document.getElementById('formularioCrear').submit();             
+                }else{
+                            alert('Por favor diligencie todos los campos');
+                        }
+                    }
+                    );
+                }
+            );
+        </script>  
     </head>
     <body>
 
@@ -72,21 +95,20 @@
             <div class="row justify-content-md-center">
                 <div class="col-sm-4">
                     <form action="../GenerarFacultad" method="post" id="formularioCrear" class="needs-validation" novalidate>
+                      
                         <div class="form-group">
                             <label for="validationCustom01">Nombre de la Facultad</label>
-                            <input type="text" class="form-control" id="nombreCrearCampus" name="nombreFacultad" required>
+                            <input type="text" class="form-control" id="nombreCrearFacultad" name="nombreFacultad" required>
                         </div>
+                        
                         <div class="form-group">
-                            <select class="custom-select" id="tipoCrearCampus" name="tipo" required>
+                            <select class="custom-select" id="idcampus" name="tipo" required>
                                 <option selected disabled value="">Identifique la sede a la que pertenece</option>
                                 <% MuestraCampus mc = new MuestraCampus(); %>
                                 <%= mc.getNombreCampus() %>
                             </select>                                                
-                        </div>
-                        <div class="form-group">
-                            <label for="validationCustom01">Identificador de la sede o campus</label>
-                            <input type="text" class="form-control" id="direccionCrearCampus" name="idCampus" required>
-                        </div>
+                        </div>      
+                            
                         <button class="btn btn-primary" type="button" id="btnformularioCrear">Guardar</button>
                     </form>
                 </div>

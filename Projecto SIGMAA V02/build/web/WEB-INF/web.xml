@@ -12,6 +12,14 @@
         <servlet-name>CrearFacultad</servlet-name>
         <servlet-class>Servlets.CrearFacultad</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CrearProgramas</servlet-name>
+        <servlet-class>Servlets.CrearProgramas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SeleccinaCampus</servlet-name>
+        <servlet-class>Servlets.SeleccinaCampus</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InicioAdministrador</servlet-name>
         <url-pattern>/Administrador</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>CrearFacultad</servlet-name>
         <url-pattern>/GenerarFacultad</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearProgramas</servlet-name>
+        <url-pattern>/Programas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SeleccinaCampus</servlet-name>
+        <url-pattern>/seleccionaruncampus</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

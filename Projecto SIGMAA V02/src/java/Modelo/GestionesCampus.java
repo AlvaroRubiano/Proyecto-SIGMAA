@@ -56,10 +56,12 @@ public class GestionesCampus extends Conexion{
             //Ahora con el while se recorre la consulta.
             while(rs.next()){
                 campus.add(new Campus(
-                        rs.getInt("Id_campus"), 
-                        rs.getString("Name_campus"), 
-                        rs.getString("Direccion"), 
-                        rs.getString("Tipo")));
+                                rs.getInt("Id_campus"), 
+                                rs.getString("Name_campus"), 
+                                rs.getString("Direccion"), 
+                                rs.getString("Tipo")
+                            )
+                        );
             }         
             
         } catch (Exception e) {
@@ -85,7 +87,7 @@ public class GestionesCampus extends Conexion{
             
         }
     }
-    */
+   */
     
     
     // Metodo para probar el Metodo de registrar campus o sedes.  
