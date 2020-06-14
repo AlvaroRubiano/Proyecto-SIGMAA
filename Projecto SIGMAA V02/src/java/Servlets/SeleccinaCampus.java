@@ -37,10 +37,8 @@ public class SeleccinaCampus extends HttpServlet {
                htmlcode2 += f.getId_facultad()+"-"+f.getNombre_facultad()+":";  
             }
             
-        }
-        
+        }        
         out.write(htmlcode2.toString());
-        
         
     }
      

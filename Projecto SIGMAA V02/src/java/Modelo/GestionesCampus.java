@@ -50,7 +50,7 @@ public class GestionesCampus extends Conexion{
         
         try {
             String consulta = "Select * from campus";
-            pst = pst =(PreparedStatement) getConexion().prepareStatement(consulta);
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
             rs = pst.executeQuery();
             
             //Ahora con el while se recorre la consulta.
@@ -84,7 +84,6 @@ public class GestionesCampus extends Conexion{
         GestionesCampus mc = new GestionesCampus();
         for(Campus c : mc.getCampus()){
             System.out.println(c.getNombre_campus()+" "+ c.getIdentificador());
-            
         }
     }
    */

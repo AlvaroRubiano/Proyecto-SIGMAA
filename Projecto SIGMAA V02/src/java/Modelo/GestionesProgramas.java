@@ -2,6 +2,7 @@
 package Modelo;
 
 import Clases.FacultadCampus;
+import Clases.Programas;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  */
 public class GestionesProgramas extends Conexion{
     
-    //Metodo para crear las facultades
+    //Metodo para crear los programas
     public boolean registraProgramas (String nombre, String modalidad, int idFacultad){
         PreparedStatement pst = null;
         
@@ -74,6 +75,54 @@ public class GestionesProgramas extends Conexion{
         
         return facultadescampus;
     }    
+    
+    //Metodo para mostrar la lista de programas registrados
+    public ArrayList<Programas> getProgramas(){
+        
+        ArrayList<Programas> programas = new ArrayList<>();
+        com.mysql.jdbc.PreparedStatement pst = null;
+        ResultSet rs = null;
+               
+        try {
+            String consulta = "SELECT Id_program, Name_program, Modalidad, Id_faculty FROM programa ORDER BY Modalidad ASC";
+            pst = pst =(com.mysql.jdbc.PreparedStatement) getConexion().prepareStatement(consulta);
+            rs = pst.executeQuery();
+            
+            while(rs.next()){
+                programas.add(new Programas(
+                        rs.getInt("Id_program"),
+                        rs.getString("Name_program"),
+                        rs.getString("Modalidad"),
+                        rs.getInt("Id_faculty")
+                ));
+            }
+            
+        } catch (Exception e) {
+        }finally{
+            try {
+                
+            } catch (Exception e2) {
+                System.out.println("Error de cierre" + e2 );
+            }
+        }
+        
+        return programas;
+    }
+    
+    //Prueba de funcionamiento del Metodo para mostrar la lista de programas.
+    /*
+    public static void main(String[] args ){
+        
+        GestionesProgramas gfc = new GestionesProgramas();
+       
+        for(Programas c : gfc.getProgramas()){
+            
+            System.out.println(c.getNombre_Programa()+" / "+ c.getModalidad()+" / "+c.getId_facultad());
+        
+        }
+    }
+    */
+    
     
     
     //Prueba de funcionamiento del Metodo para mostrar la lista de facultades y campus registrados.

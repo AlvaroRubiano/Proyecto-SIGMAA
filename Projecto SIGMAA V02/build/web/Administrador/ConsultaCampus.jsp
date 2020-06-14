@@ -1,10 +1,10 @@
 <%-- 
     Document   : Administracion
     Created on : 10/04/2020, 05:47:27 PM
-    Author     : Alvaro
+    Author     : Alvaro Rubiano
 --%>
 
-<%@page import="Controlador.MuestraCampus"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     HttpSession objetoSession = request.getSession(false);
@@ -17,11 +17,39 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Consulta de Campus o sedes</title>
+        <title>Consulta de Sedes</title>
         <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
+        <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" href="../css/jquery.dataTables.min.css"/>
+        <script type="text/javascript" src="../js/datatables.min.js"></script>
+        
+        
+        <script>
+            
+            $(document).ready(function() {
+                var tabla = $('#tablaSedes').DataTable({
+                        ajax:{
+                            method: 'POST',
+                            url: '../consultaSede',
+                            dataSrc: 'datos'
+                            },
+                            columns: [
+                                {data: "nombre"},
+                                {data: "tipo"}, 
+                                {data: "direccion"} 
+                            ]                        
+                });
+              
+                //$.fn.dataTable.ext.errMode = 'throw';
+               
+            });
+        
+        </script>      
         
     </head>
-    <body>
+    
 
 <%--Inicio del encabezado de la página --%>  
     <div class="card-header">
@@ -59,19 +87,31 @@
 
 <%-- Cuerpo de la página --%>
             <div class="card-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm">Nombre del Campus</div>
-                        <div class="col-sm">Tipo de campus</div>
-                        <div class="col-sm">Dirección</div>
-                    </div>
+                <div class="card text-center">
+                    <h1>Consulta de Sedes</h1>
                 </div> 
-            </div> 
-                <%
-                    Controlador.MuestraCampus cc = new MuestraCampus();
-                %>
-                <%= cc.getVistaCampus()%>                
-            
+                <div class="container">
+                    <div class="table-responsive">
+                        <table id="tablaSedes" class="table table-bordered table-striped table-hover" style="width:100%">
+                            <thead>
+                                <tr>                                    
+                                    <th>Sede</th>
+                                    <th>Tipo</th>
+                                    <th>Dirección</th>
+                                                                        
+                                </tr>
+                            </thead>
+                            <tbody id="employee_data">
+
+
+
+                            </tbody>
+                                
+                        </table>
+                    </div>                    
+                </div>  
+                
+            </div>             
 <%-- Fin del cuerpo de la página --%>  
             
 <%-- Píe de la página --%>            
@@ -82,8 +122,6 @@
         </div>
 <%-- Fin del píe de la página --%>  
 
-    <script src="../js/jquery-3.5.0.slim.min.js"></script>
-    <script src="../js/popper.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    </body>
+    
+    
 </html>
