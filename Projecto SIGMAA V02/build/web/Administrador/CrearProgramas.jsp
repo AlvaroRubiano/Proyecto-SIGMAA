@@ -72,7 +72,7 @@
         });
                
     </script>
-   <script>
+    <script>
             window.addEventListener('load', function (){
     
             document.getElementById('btnformularioCrear').addEventListener('click', function (){
@@ -98,7 +98,7 @@
                     );
                 }
             );
-        </script> 
+    </script> 
     </head>
     <body>
 
@@ -157,8 +157,7 @@
                                 <% MuestraCampus mc = new MuestraCampus(); %>
                                 <%= mc.getNombreCampus() %>
                             </select>                                                
-                        </div>
-                        
+                        </div>                        
                         <div class="form-group">
                             <select class="custom-select" id="idfacultad" name="idfacultad" >
                                 <option selected disabled value="">Seleccione la facultad</option>  

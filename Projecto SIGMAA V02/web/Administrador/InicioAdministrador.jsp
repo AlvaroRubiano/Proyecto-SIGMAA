@@ -1,7 +1,7 @@
 <%-- 
     Document   : InicioAdministrador
     Created on : 10/04/2020, 05:30:53 PM
-    Author     : Alvaro
+    Author     : Alvaro Rubiano
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="../css/misestilos.css" type="text/css">
     </head>
     <body>
-
 <%--Inicio del encabezado de la página --%>          
     <div class="card-header" id="encabezado">
         <div class="container">
@@ -33,16 +32,16 @@
 <%--Fin del encabezado de la página --%>  
 
 <%--Inicio cuerpo de la página --%>
-    <div class="card-body" id="body_inicioadministrador">
+    <div class="card-body" id="administrador">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-sm-4">
                     <form action="../Administrador" method="post">
                         <div class="form-group">
-                            <input placeholder="Usuario" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="usuarioadministrador">
+                            <input placeholder="Usuario" type="email" class="form-control" id="Email" aria-describedby="emailHelp" name="Email">
                         </div>
                         <div class="form-group">
-                            <input placeholder="Contraseña" type="password" class="form-control" id="exampleInputPassword1" name="passwordadministrador">
+                            <input placeholder="Contraseña" type="password" class="form-control" id="InputPassword" name="InputPassword">
                         </div>
                         <button type="submit" class="btn btn-primary">Ingresar</button>
                     </form> 

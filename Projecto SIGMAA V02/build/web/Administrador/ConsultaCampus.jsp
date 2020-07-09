@@ -17,8 +17,42 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<<<<<<< Updated upstream
         <title>Consulta de Campus o sedes</title>
         <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
+=======
+        <title>Consulta de Campus</title>
+        <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
+        <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" href="../css/jquery.dataTables.min.css"/>
+        <script type="text/javascript" src="../js/datatables.min.js"></script>
+        
+        
+        <script>
+            
+            $(document).ready(function() {
+                var tabla = $('#tablaSedes').DataTable({
+                        ajax:{
+                            method: 'POST',
+                            url: '../consultaSede',
+                            dataSrc: 'datos'
+                            },
+                            columns: [
+                                {data: "identificador"},
+                                {data: "nombre"},
+                                {data: "tipo"}, 
+                                {data: "direccion"} 
+                            ]                        
+                });
+              
+                //$.fn.dataTable.ext.errMode = 'throw';
+               
+            });
+        
+        </script>      
+>>>>>>> Stashed changes
         
     </head>
     <body>
@@ -60,6 +94,7 @@
 <%-- Cuerpo de la página --%>
             <div class="card-body">
                 <div class="container">
+<<<<<<< Updated upstream
                     <div class="row">
                         <div class="col-sm">Nombre del Campus</div>
                         <div class="col-sm">Tipo de campus</div>
@@ -72,6 +107,30 @@
                 %>
                 <%= cc.getVistaCampus()%>                
             
+=======
+                    <div class="table-responsive">
+                        <table id="tablaSedes" class="table table-bordered table-striped table-hover" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Identificador</th>
+                                    <th>Sede</th>
+                                    <th>Tipo</th>
+                                    <th>Dirección</th>
+                                                                        
+                                </tr>
+                            </thead>
+                            <tbody id="employee_data">
+
+
+
+                            </tbody>
+                                
+                        </table>
+                    </div>                    
+                </div>  
+                
+            </div>             
+>>>>>>> Stashed changes
 <%-- Fin del cuerpo de la página --%>  
             
 <%-- Píe de la página --%>            

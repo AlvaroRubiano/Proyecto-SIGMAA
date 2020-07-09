@@ -53,7 +53,6 @@ public final class InicioAdministrador_jsp extends org.apache.jasper.runtime.Htt
       out.write("        <link rel=\"stylesheet\" href=\"../css/misestilos.css\" type=\"text/css\">\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("\n");
       out.write("          \n");
       out.write("    <div class=\"card-header\" id=\"encabezado\">\n");
       out.write("        <div class=\"container\">\n");
@@ -72,16 +71,16 @@ public final class InicioAdministrador_jsp extends org.apache.jasper.runtime.Htt
       out.write("  \n");
       out.write("\n");
       out.write("\n");
-      out.write("    <div class=\"card-body\" id=\"body_inicioadministrador\">\n");
+      out.write("    <div class=\"card-body\" id=\"administrador\">\n");
       out.write("        <div class=\"container\">\n");
       out.write("            <div class=\"row justify-content-md-center\">\n");
       out.write("                <div class=\"col-sm-4\">\n");
       out.write("                    <form action=\"../Administrador\" method=\"post\">\n");
       out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <input placeholder=\"Usuario\" type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" name=\"usuarioadministrador\">\n");
+      out.write("                            <input placeholder=\"Usuario\" type=\"email\" class=\"form-control\" id=\"Email\" aria-describedby=\"emailHelp\" name=\"Email\">\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <input placeholder=\"Contraseña\" type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\" name=\"passwordadministrador\">\n");
+      out.write("                            <input placeholder=\"Contraseña\" type=\"password\" class=\"form-control\" id=\"InputPassword\" name=\"InputPassword\">\n");
       out.write("                        </div>\n");
       out.write("                        <button type=\"submit\" class=\"btn btn-primary\">Ingresar</button>\n");
       out.write("                    </form> \n");
