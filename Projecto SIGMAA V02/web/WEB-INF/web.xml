@@ -82,6 +82,9 @@
         <servlet-name>ModificarMaterias</servlet-name>
         <servlet-class>Servlets.ModificarMaterias</servlet-class>
     </servlet>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     <servlet-mapping>
         <servlet-name>InicioAdministrador</servlet-name>
@@ -161,6 +164,9 @@
         <servlet-name>ModificarMaterias</servlet-name>
         <url-pattern>/modificarMaterias</url-pattern>
     </servlet-mapping>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
     <session-config>
         <session-timeout>

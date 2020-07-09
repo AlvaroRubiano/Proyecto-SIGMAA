@@ -18,9 +18,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         <title>Consulta de Campus o sedes</title>
         <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
 =======
+=======
+>>>>>>> Stashed changes
         <title>Consulta de Campus</title>
         <link rel="stylesheet" href="../css/bootstrap.css" type="text/css">
         <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>

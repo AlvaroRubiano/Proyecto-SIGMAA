@@ -58,15 +58,21 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                                         <a class="dropdown-item" href="#">Campus</a>
                                         <a class="dropdown-item" href="#">Facultad</a>
                                         <a class="dropdown-item" href="#">Programa</a>
                                         <a class="dropdown-item" href="#">Clases</a>
 =======
+=======
+>>>>>>> Stashed changes
                                         <a class="dropdown-item" href="ModificarCampus.jsp">Sedes</a>
                                         <a class="dropdown-item" href="ModificarFacultades.jsp">Facultades</a>
                                         <a class="dropdown-item" href="ModificarProgramas.jsp">Programas</a>
                                         <a class="dropdown-item" href="ModificarMaterias.jsp">Materias</a>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                                     </div>
                                 </li>
@@ -102,13 +108,21 @@
                 <div class="container">
                     <div class="row justify-content-md-center">
                         <div class="col-lg-3">
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                             <a class="nav-link" href="ConsultaCampus.jsp">
                                 <img src="../Imagenes/Campus.svg" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>   
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                       </div>
                       <div class="col-lg-2">
+=======
+                        </div>
+                        <div class="col-lg-3">
+>>>>>>> Stashed changes
 =======
                         </div>
                         <div class="col-lg-3">
@@ -117,9 +131,12 @@
                                 <img src="../Imagenes/Facultades.svg" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                       </div>
                       <div class="col-lg-2">
 =======
+=======
+>>>>>>> Stashed changes
                         </div>
                         <div class="col-lg-3">
                             <a class="nav-link" href="ConsultaProgramas.jsp">
@@ -127,6 +144,9 @@
                             </a>
                         </div>
                         <div class="col-lg-3">
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                             <a class="nav-link" href="ConsultaMaterias.jsp">
                                 <img src="../Imagenes/Materias.svg" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
@@ -134,8 +154,13 @@
                         </div> 
                     </div>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                     <div class="row justify-content-md-center">
                       <div class="col-lg-2">
+=======
+                    <div class="row justify-content-md-center">                         
+                        <div class="col-lg-3">
+>>>>>>> Stashed changes
 =======
                     <div class="row justify-content-md-center">                         
                         <div class="col-lg-3">
@@ -144,8 +169,13 @@
                                 <img src="../Imagenes/Tutores.svg" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>   
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                       </div>
                       <div class="col-lg-2">
+=======
+                        </div>
+                        <div class="col-lg-3">
+>>>>>>> Stashed changes
 =======
                         </div>
                         <div class="col-lg-3">
@@ -154,10 +184,14 @@
                                 <img src="../Imagenes/Estudiantes.svg" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                       </div>
                       <div class="col-lg-2">
                             Empty
                       </div>
+=======
+                        </div>                      
+>>>>>>> Stashed changes
 =======
                         </div>                      
 >>>>>>> Stashed changes
