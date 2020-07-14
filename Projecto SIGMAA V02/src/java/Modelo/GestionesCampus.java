@@ -4,6 +4,7 @@ package Modelo;
 import Clases.Campus;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -50,7 +51,7 @@ public class GestionesCampus extends Conexion{
         
         try {
             String consulta = "Select * from campus";
-            pst = pst =(PreparedStatement) getConexion().prepareStatement(consulta);
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
             rs = pst.executeQuery();
             
             //Ahora con el while se recorre la consulta.
@@ -62,8 +63,7 @@ public class GestionesCampus extends Conexion{
                                 rs.getString("Tipo")
                             )
                         );
-            }         
-            
+            }
         } catch (Exception e) {
         }finally{
             try {
@@ -77,6 +77,59 @@ public class GestionesCampus extends Conexion{
         return campus;
     }
     
+    //Metodo para editar campus o sedes
+    public boolean actualizarCampus (int id, String nombre, String tipo, String direccion){
+        PreparedStatement pst = null;
+        boolean flag = false;
+        
+        try {
+            String consulta = "UPDATE campus SET Name_campus='"+nombre+"', Tipo='"+tipo+"', Direccion='"+direccion+"' WHERE Id_campus="+id;
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
+            pst.executeUpdate();
+                        
+            if(pst.executeUpdate()==1){
+                return true;
+            }           
+           
+        } catch (Exception e) {
+            System.out.println("Error 3: " + e);
+        }finally{
+            try {
+                if(getConexion() != null) getConexion().close();
+                if(pst != null) pst.close();                
+            } catch (Exception e) {
+                System.out.println("Error 4: " + e);
+            }
+        }
+        return false;
+    } 
+    
+    //Metodo para eliminar campus o sedes
+    public boolean eliminarCampus (int id){
+        PreparedStatement pst = null;
+        boolean flag = false;        
+        try {
+            String consulta = "DELETE FROM campus WHERE Id_campus="+id;
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
+            pst.executeUpdate();
+                        
+            if(pst.executeUpdate()==1){
+                return true;
+            }    
+           
+        } catch (SQLException e) {
+            System.out.println("Error 3: " + e);
+        }finally{
+            try {
+                if(getConexion() != null) getConexion().close();
+                if(pst != null) pst.close();                
+            } catch (SQLException e) {
+                System.out.println("Error 4: " + e);
+            }
+        }
+        return false;
+    } 
+    
     
     //Prueba de funcionamiento del Metodo para mostrar la lista de campus registrados.
     /*
@@ -84,11 +137,9 @@ public class GestionesCampus extends Conexion{
         GestionesCampus mc = new GestionesCampus();
         for(Campus c : mc.getCampus()){
             System.out.println(c.getNombre_campus()+" "+ c.getIdentificador());
-            
         }
     }
-   */
-    
+    */    
     
     // Metodo para probar el Metodo de registrar campus o sedes.  
     /* 
@@ -98,7 +149,21 @@ public class GestionesCampus extends Conexion{
     }
     */
     
+    // Metodo para probar el Metodo de actualizar campus o sedes.  
+    /* 
+    public static void main(String[] args) {
+        GestionesCampus rg = new GestionesCampus();       
+        
+        System.out.println(rg.actualizarCampus(29, "Alvaro Rubiano v03", "Seccional", "Calle 24 N° 8-55"));
+    }
+    */
     
-    
+    // Metodo para probar el Metodo de eliminar campus o sedes.  
+    /* 
+    public static void main(String[] args) {
+        GestionesCampus rg = new GestionesCampus();      
+        System.out.println(rg.eliminarCampus(29));
+    }
+    */
     
 }
