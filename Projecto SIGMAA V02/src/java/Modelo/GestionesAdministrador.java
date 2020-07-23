@@ -3,7 +3,7 @@ package Modelo;
 
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.ResultSet;
-
+import java.sql.SQLException;
 
 /**
  *
@@ -18,7 +18,6 @@ public class GestionesAdministrador extends Conexion{
         
         try {
             String consulta = "select * from administrador where Email = ? and Clave = ?";
-            //Obtener la conexion
             pst = (PreparedStatement) getConexion().prepareStatement(consulta);
             pst.setString(1, usuario);
             pst.setString(2, contrasena);
@@ -29,14 +28,47 @@ public class GestionesAdministrador extends Conexion{
                 return true;
             }
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error 1: " + e);
         }finally{
             try {
                 if(getConexion() != null) getConexion().close();
                 if(pst != null) pst.close();
                 if(rs != null) rs.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
+                System.out.println("Error 2: " + e);
+            }
+        }        
+        return false;
+    }
+    
+    //Metodo de autenticación para el administrador
+    public boolean usuarios (String usuario, String contrasena){
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String dato = "";
+        try {
+            String consulta = "select Type_users from usuarios where Mail_users = ? and Pass_users = ?";           
+            pst = (PreparedStatement) getConexion().prepareStatement(consulta);
+            pst.setString(1, usuario);
+            pst.setString(2, contrasena);
+            
+            rs = pst.executeQuery();
+            while(rs.next()){
+                dato = rs.getNString(1);                
+            }            
+            if(rs.absolute(1)){
+                return true;           
+                
+            }            
+        } catch (SQLException e) {
+            System.out.println("Error 1: " + e);
+        }finally{
+            try {
+                if(getConexion() != null) getConexion().close();
+                if(pst != null) pst.close();
+                if(rs != null) rs.close();
+            } catch (SQLException e) {
                 System.out.println("Error 2: " + e);
             }
         }
@@ -71,17 +103,13 @@ public class GestionesAdministrador extends Conexion{
             }
         }
         return false;
-    }
-    
-    
-    
-    
-    /*Main para verificar el metodo de autenticación para el administrador.
-    public static void main(String[] args) {
-        Consultas co = new Consultas();
-        System.out.println(co.autenticacion("arubiano20@estudiantes.areandina.edu.co", "12345"));
-    }
-    */
+    }      
+        
+    //Main para verificar el metodo de autenticación para el administrador.
+//    public static void main(String[] args) {
+//        Consultas co = new Consultas();
+//        System.out.println(co.autenticacion("arubiano20@estudiantes.areandina.edu.co", "12345"));
+//    }    
     
     /*Main para verificar el metodo para crear administradores
     public static void main(String[] args) {
@@ -90,8 +118,14 @@ public class GestionesAdministrador extends Conexion{
     }
     */
     
+//    //Main para verificar el metodo para crear administradores
+//    public static void main(String[] args) {        
+//        GestionesAdministrador ad = new GestionesAdministrador();
+//        System.out.println(ad.usuarios("rubiano124@gmail.com", "12345"));
+//    }
     
     
+   
     
     
     
