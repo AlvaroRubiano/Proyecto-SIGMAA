@@ -1,21 +1,26 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Servlets;
 
-import Modelo.GestionesAdministrador;
+import Modelo.Conexion;
 import Modelo.GestionesUsuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 /**
  *
  * @author Alvaro Rubiano
  */
-public class InicioAdministrador extends HttpServlet {
+public class ActualizarContrasena extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,23 +35,48 @@ public class InicioAdministrador extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        Conexion conexion = new Conexion();
+        PreparedStatement pst = null;
+        ResultSet rs = null; 
+        String actualizar = request.getParameter("actualizar");
+        String usuario = request.getParameter("id");
+        String pass = request.getParameter("password");
+        String newpass = request.getParameter("nuevoPassword");
+        String confirmar = request.getParameter("confirmarPassword");        
         
-        String usuario1 = request.getParameter("usuarioadministrador");
-        String constraseña1 = request.getParameter("passwordadministrador");
-        
-        GestionesAdministrador consulta = new GestionesAdministrador();
         GestionesUsuarios gu = new GestionesUsuarios();
         
-        if (consulta.autenticacion(usuario1, gu.getEncriptacion(constraseña1))) {
-            HttpSession objetoSesion = request.getSession(true);
-            objetoSesion.setAttribute("UsuarioLogeado", usuario1);
-            response.sendRedirect("Administrador/ModuloAdministracion.jsp");
-        } else {
-            response.sendRedirect("index.jsp");
+        //out.print(actualizar+"usuario: "+usuario);
+        switch(actualizar){
+            case "monitor":
+                if(newpass.equals(confirmar)){                      
+                    try {                        
+                        String consulta = "UPDATE usuarios SET Pass_users='"+gu.getEncriptacion(confirmar)+"' WHERE Pass_users='"+pass+"' AND Id_usuario='"+usuario+"';";
+                        pst = (PreparedStatement) conexion.getConexion().prepareStatement(consulta);
+                        pst.executeUpdate();
+                        response.sendRedirect("Tutores/Tutores.jsp");
+                    } catch (SQLException e) {
+                        out.print("Error 3: " + e);
+                    } finally {
+                        try {
+                            if (pst != null) {
+                            pst.close();
+                            }
+                        } catch (SQLException e) {
+                            out.print("Error 4: " + e);
+                        }
+                    }
+                }else{
+                     response.sendRedirect("Tutores/Tutores.jsp");
+                }
+                break;
+            
+            default:    
         }
-    
+        
+        
+        
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

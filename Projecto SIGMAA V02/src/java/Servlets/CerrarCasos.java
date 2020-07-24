@@ -1,21 +1,26 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Servlets;
 
-import Modelo.GestionesAdministrador;
-import Modelo.GestionesUsuarios;
+import Modelo.Conexion;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Alvaro Rubiano
+ * @author Alvaro
  */
-public class InicioAdministrador extends HttpServlet {
+public class CerrarCasos extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,23 +35,33 @@ public class InicioAdministrador extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        Conexion conexion = new Conexion();
+        PreparedStatement pst = null;
+        ResultSet rs = null;        
         
-        String usuario1 = request.getParameter("usuarioadministrador");
-        String constraseña1 = request.getParameter("passwordadministrador");
+        int caso = Integer.parseInt(request.getParameter("caso"));       
+        //'Abierto'
+        try {
+            String consulta = "UPDATE tutorias SET estado='Cerrado' WHERE Id_tutorias="+caso;
+            pst = (PreparedStatement) conexion.getConexion().prepareStatement(consulta);
+            pst.executeUpdate();
+            response.sendRedirect("OficinaOPE/ModificarTutorias.jsp");
+
+            } catch (SQLException e) {
+                    out.print("Error 3: " + e);
+            } finally {
+                    try {
+                    if (pst != null) {
+                            pst.close();
+                    }
+                } catch (SQLException e) {
+                    out.print("Error 4: " + e);
+                }
+            }
         
-        GestionesAdministrador consulta = new GestionesAdministrador();
-        GestionesUsuarios gu = new GestionesUsuarios();
         
-        if (consulta.autenticacion(usuario1, gu.getEncriptacion(constraseña1))) {
-            HttpSession objetoSesion = request.getSession(true);
-            objetoSesion.setAttribute("UsuarioLogeado", usuario1);
-            response.sendRedirect("Administrador/ModuloAdministracion.jsp");
-        } else {
-            response.sendRedirect("index.jsp");
-        }
-    
+        
     }
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
