@@ -46,7 +46,11 @@ public class ConsultaEvidencias extends HttpServlet {
         try {
             String consulta = "SELECT tutorias.Id_tutorias, estudiantes.Name_users, factor_asociado.Name_factor, usuarios.Name_users, tutorias.obervaciones, resultado.observaciones, resultado.nombre, resultado.ruta "
                     + "FROM tutorias, estudiantes, factor_asociado, usuarios, resultado "
+<<<<<<< Updated upstream
                     + "WHERE tutorias.Id_estudiante=estudiantes.Id_estudiante AND tutorias.Id_factor=factor_asociado.Id_factor AND tutorias.Id_tutor=usuarios.Id_usuario AND tutorias.Id_tutorias=resultado.Id_resultado;";
+=======
+                    + "WHERE tutorias.Id_estudiante=estudiantes.Id_estudiante AND tutorias.Id_factor=factor_asociado.Id_factor AND tutorias.Id_tutor=usuarios.Id_usuario AND resultado.Id_resultado=tutorias.Id_tutorias AND tutorias.estado=\"'Abierto'\";";
+>>>>>>> Stashed changes
             pst =(PreparedStatement) conexion.getConexion().prepareStatement(consulta);
             rs = pst.executeQuery();
             

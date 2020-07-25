@@ -156,6 +156,7 @@
         <servlet-name>ActualizarContrasena</servlet-name>
         <servlet-class>Servlets.ActualizarContrasena</servlet-class>
     </servlet>
+<<<<<<< Updated upstream
     <servlet>
         <servlet-name>Datos</servlet-name>
         <servlet-class>Servlets.Datos</servlet-class>
@@ -164,6 +165,8 @@
         <servlet-name>ConsultaMonitoriasTutor</servlet-name>
         <servlet-class>Servlets.ConsultaMonitoriasTutor</servlet-class>
     </servlet>
+=======
+>>>>>>> Stashed changes
     <servlet-mapping>
         <servlet-name>InicioAdministrador</servlet-name>
         <url-pattern>/Administrador</url-pattern>
@@ -316,6 +319,7 @@
         <servlet-name>ActualizarContrasena</servlet-name>
         <url-pattern>/actualizarcontrasena</url-pattern>
     </servlet-mapping>
+<<<<<<< Updated upstream
     <servlet-mapping>
         <servlet-name>Datos</servlet-name>
         <url-pattern>/datos</url-pattern>
@@ -324,6 +328,8 @@
         <servlet-name>ConsultaMonitoriasTutor</servlet-name>
         <url-pattern>/consultamonitoriasmonitores</url-pattern>
     </servlet-mapping>
+=======
+>>>>>>> Stashed changes
     <session-config>
         <session-timeout>
             30

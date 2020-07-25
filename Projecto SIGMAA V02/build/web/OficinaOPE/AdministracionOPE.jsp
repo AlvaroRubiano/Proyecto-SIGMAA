@@ -59,7 +59,10 @@
                                         <a class="dropdown-item" href="ModificarUsuarios.jsp">Tutores</a>
                                         <a class="dropdown-item" href="ModificarEstudiantes.jsp">Estudiantes</a>
                                         <a class="dropdown-item" href="ModificarTutorias.jsp">Tutorias</a>
+<<<<<<< Updated upstream
                                         <a class="dropdown-item" href="ActualizarContrasena.jsp">Contraseña</a>
+=======
+>>>>>>> Stashed changes
                                     </div>
                                 </li>
                                 <li class="nav-item">

@@ -45,12 +45,16 @@
                                     <a class="nav-link" href="../index.jsp">Salir<span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item active">                                    
+<<<<<<< Updated upstream
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Actualizar
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">                                        
                                         <a class="dropdown-item" href="ActualizarContrasena.jsp">Contraseña</a>
                                     </div>
+=======
+                                    <a class="nav-link" href="ActualizarContrasena.jsp">Actualizar Contraseña<span class="sr-only">(current)</span></a>
+>>>>>>> Stashed changes
                                 </li>
                             </ul>                            
                         </div>

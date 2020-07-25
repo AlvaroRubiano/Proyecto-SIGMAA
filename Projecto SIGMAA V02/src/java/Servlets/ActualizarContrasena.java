@@ -71,6 +71,7 @@ public class ActualizarContrasena extends HttpServlet {
                 }
                 break;
             
+<<<<<<< Updated upstream
             case "administrativo":
                 if(newpass.equals(confirmar)){                      
                     try {                        
@@ -93,6 +94,8 @@ public class ActualizarContrasena extends HttpServlet {
                      response.sendRedirect("OficinaOPE/AdministracionOPE.jsp");
                 }
                 break;    
+=======
+>>>>>>> Stashed changes
             default:    
         }
         
