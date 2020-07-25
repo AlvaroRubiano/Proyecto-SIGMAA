@@ -71,6 +71,28 @@ public class ActualizarContrasena extends HttpServlet {
                 }
                 break;
             
+            case "administrativo":
+                if(newpass.equals(confirmar)){                      
+                    try {                        
+                        String consulta = "UPDATE usuarios SET Pass_users='"+gu.getEncriptacion(confirmar)+"' WHERE Pass_users='"+pass+"' AND Id_usuario='"+usuario+"';";
+                        pst = (PreparedStatement) conexion.getConexion().prepareStatement(consulta);
+                        pst.executeUpdate();
+                        response.sendRedirect("OficinaOPE/AdministracionOPE.jsp");
+                    } catch (SQLException e) {
+                        out.print("Error 3: " + e);
+                    } finally {
+                        try {
+                            if (pst != null) {
+                            pst.close();
+                            }
+                        } catch (SQLException e) {
+                            out.print("Error 4: " + e);
+                        }
+                    }
+                }else{
+                     response.sendRedirect("OficinaOPE/AdministracionOPE.jsp");
+                }
+                break;    
             default:    
         }
         

@@ -20,8 +20,6 @@
         <servlet-name>SeleccinaCampus</servlet-name>
         <servlet-class>Servlets.SeleccinaCampus</servlet-class>
     </servlet>
-<<<<<<< Updated upstream
-=======
     <servlet>
         <servlet-name>SeleccionaFacultad</servlet-name>
         <servlet-class>Servlets.SeleccionaFacultad</servlet-class>
@@ -158,7 +156,14 @@
         <servlet-name>ActualizarContrasena</servlet-name>
         <servlet-class>Servlets.ActualizarContrasena</servlet-class>
     </servlet>
->>>>>>> Stashed changes
+    <servlet>
+        <servlet-name>Datos</servlet-name>
+        <servlet-class>Servlets.Datos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ConsultaMonitoriasTutor</servlet-name>
+        <servlet-class>Servlets.ConsultaMonitoriasTutor</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InicioAdministrador</servlet-name>
         <url-pattern>/Administrador</url-pattern>
@@ -179,8 +184,6 @@
         <servlet-name>SeleccinaCampus</servlet-name>
         <url-pattern>/seleccionaruncampus</url-pattern>
     </servlet-mapping>
-<<<<<<< Updated upstream
-=======
     <servlet-mapping>
         <servlet-name>SeleccionaFacultad</servlet-name>
         <url-pattern>/seleccionarunafacultad</url-pattern>
@@ -313,7 +316,14 @@
         <servlet-name>ActualizarContrasena</servlet-name>
         <url-pattern>/actualizarcontrasena</url-pattern>
     </servlet-mapping>
->>>>>>> Stashed changes
+    <servlet-mapping>
+        <servlet-name>Datos</servlet-name>
+        <url-pattern>/datos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConsultaMonitoriasTutor</servlet-name>
+        <url-pattern>/consultamonitoriasmonitores</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

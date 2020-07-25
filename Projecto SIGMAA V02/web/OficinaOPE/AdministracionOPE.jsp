@@ -59,6 +59,7 @@
                                         <a class="dropdown-item" href="ModificarUsuarios.jsp">Tutores</a>
                                         <a class="dropdown-item" href="ModificarEstudiantes.jsp">Estudiantes</a>
                                         <a class="dropdown-item" href="ModificarTutorias.jsp">Tutorias</a>
+                                        <a class="dropdown-item" href="ActualizarContrasena.jsp">Contraseña</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
@@ -84,21 +85,26 @@
                 </div>
                 <div class="container">                    
                     <div class="row justify-content-md-center">
-                      <div class="col-lg-3">
+                        <div class="col-lg-3">
                             <a class="nav-link" href="ConsultaUsuarios.jsp">
                                 <img src="../Imagenes/Tutores.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>   
-                      </div>
-                      <div class="col-lg-3">
+                        </div>
+                        <div class="col-lg-3">
                             <a class="nav-link" href="ConsultaEstudiantes.jsp">
                                 <img src="../Imagenes/Estudiantes.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>
-                      </div>
-                      <div class="col-lg-3">
+                        </div>
+                        <div class="col-lg-3">
                             <a class="nav-link" href="ConsultaTutorias.jsp">
                                 <img src="../Imagenes/Tutorias.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
                             </a>
-                      </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <a class="nav-link" href="ConsultaDatos.jsp">
+                                <img src="../Imagenes/Resumen.png" class="rounded mx-auto d-block" alt="..." width="100px" height="100px">
+                            </a>
+                        </div>
                     </div>
                 </div>           
                 

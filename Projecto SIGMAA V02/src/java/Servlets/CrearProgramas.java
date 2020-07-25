@@ -35,7 +35,7 @@ public class CrearProgramas extends HttpServlet {
             int idFacultad = Integer.parseInt(request.getParameter("idfacultad"));    
             
             GestionesProgramas registrarprograma = new GestionesProgramas();
-            
+                        
             if(registrarprograma.registraProgramas(programa, modalidad, idFacultad)){
                 response.sendRedirect("Administrador/ModuloAdministracion.jsp");
             }else

@@ -31,8 +31,8 @@ public class InicioAdministrador extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String usuario1 = request.getParameter("usuarioadministrador");
-        String constraseña1 = request.getParameter("passwordadministrador");
+        String usuario1 = request.getParameter("Email");
+        String constraseña1 = request.getParameter("InputPassword");
         
         GestionesAdministrador consulta = new GestionesAdministrador();
         GestionesUsuarios gu = new GestionesUsuarios();
@@ -42,7 +42,7 @@ public class InicioAdministrador extends HttpServlet {
             objetoSesion.setAttribute("UsuarioLogeado", usuario1);
             response.sendRedirect("Administrador/ModuloAdministracion.jsp");
         } else {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("ups.jsp");
         }
     
     }

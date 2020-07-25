@@ -53,15 +53,15 @@ public class GestionesUsuarios extends Conexion{
     }
     
     //Metodo para mostrar la lista de campus registrados
-    public ArrayList<Usuarios> getUsuarios(){
+    public ArrayList<Usuarios> getUsuarios(int x){
         
         ArrayList<Usuarios> usuarios = new ArrayList<>();
         PreparedStatement pst = null;
         ResultSet rs = null;
                
         try {
-            String consulta = "SELECT * FROM usuarios";
-            pst = pst =(PreparedStatement) getConexion().prepareStatement(consulta);
+            String consulta = "SELECT * FROM usuarios WHERE Type_users="+x;
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
             rs = pst.executeQuery();
             
             while(rs.next()){

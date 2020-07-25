@@ -78,7 +78,7 @@ public class IngresoUsuarios extends HttpServlet {
                         break;
                     }
                     case 3:{
-                        HttpSession objetoSesion = request.getSession(true);
+                        HttpSession objetoSesion = request.getSession(true);                        
                         objetoSesion.setAttribute("UsuarioAutenticado", nombre);
                         response.sendRedirect("OficinaOPE/AdministracionOPE.jsp");
                         break;
