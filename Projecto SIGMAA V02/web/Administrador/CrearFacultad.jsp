@@ -88,7 +88,7 @@
 <%-- Cuerpo de la página --%>
     <div class="card-body" id="body_administrador">
         <div class="card text-center">
-            <h1>Crear campus universitarios o sedes</h1>
+            <h1>Crear Facultades</h1>
         </div>       
         
         <div class="container">
@@ -105,7 +105,7 @@
                             <select class="custom-select" id="idcampus" name="tipo" required>
                                 <option selected disabled value="">Identifique la sede a la que pertenece</option>
                                 <% MuestraCampus mc = new MuestraCampus(); %>
-                                <%= mc.getNombreCampus() %>
+                                <%= mc.getNombreCampus()%>
                             </select>                                                
                         </div>      
                             

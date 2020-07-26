@@ -2,6 +2,7 @@
 package Servlets;
 
 import Modelo.GestionesAdministrador;
+import Modelo.GestionesUsuarios;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -30,20 +31,19 @@ public class InicioAdministrador extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String usuario1 = request.getParameter("usuarioadministrador");
-        String constraseña1 = request.getParameter("passwordadministrador");
+        String usuario1 = request.getParameter("Email");
+        String constraseña1 = request.getParameter("InputPassword");
         
         GestionesAdministrador consulta = new GestionesAdministrador();
+        GestionesUsuarios gu = new GestionesUsuarios();
         
-        if (consulta.autenticacion(usuario1, constraseña1)) {
+        if (consulta.autenticacion(usuario1, gu.getEncriptacion(constraseña1))) {
             HttpSession objetoSesion = request.getSession(true);
             objetoSesion.setAttribute("UsuarioLogeado", usuario1);
             response.sendRedirect("Administrador/ModuloAdministracion.jsp");
         } else {
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("ups.jsp");
         }
-        
-        
     
     }
     

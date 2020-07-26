@@ -4,8 +4,8 @@ package Modelo;
 import Clases.Facultad;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  *
@@ -18,7 +18,7 @@ public class GestionesFacultades extends Conexion{
         PreparedStatement pst = null;
         
         try {
-            String consulta = "insert into facultad (Name_faculty, Id_campus) values(?,?)";
+            String consulta = "INSERT INTO faculta (Name, IdCampus) values(?,?)";
             pst = (PreparedStatement) getConexion().prepareStatement(consulta);
             
             pst.setString(1, nombre);
@@ -28,7 +28,7 @@ public class GestionesFacultades extends Conexion{
                 return true;
             }
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error 1" + e);
         }finally{
             try {
@@ -36,40 +36,39 @@ public class GestionesFacultades extends Conexion{
             } catch (Exception e2) {
                 System.out.println("Error de cierre" + e2 );
             }
-        }
-         
+        }         
         return false;
     }
     
     //Metodo para mostrar la lista de campus registrados
-    public ArrayList<Facultad> getFacultad(){
+    public ArrayList<Facultad> getFacultad(int x){
         
         ArrayList<Facultad> facultades = new ArrayList<>();
-        com.mysql.jdbc.PreparedStatement pst = null;
+        PreparedStatement pst = null;
         ResultSet rs = null;
                         
         try {            
-            String consulta = "Select * from facultad ";
-            pst = pst =(com.mysql.jdbc.PreparedStatement) getConexion().prepareStatement(consulta);
+            String consulta = "SELECT * FROM faculta WHERE faculta.IdCampus="+x;
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
             rs = pst.executeQuery();
                         
             //Ahora con el while se recorre la consulta.
             while(rs.next()){
                 facultades.add(new Facultad(
-                        rs.getInt("Id_faculty"),
-                        rs.getString("Name_faculty"),
-                        rs.getInt("Id_campus") 
+                        rs.getInt("Id"),
+                        rs.getString("Name"),
+                        rs.getInt("IdCampus") 
                     )
                 );
             } 
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
         }finally{
             try {
                 if(getConexion() != null) getConexion().close();
                 if(pst != null) pst.close(); 
                 if(rs != null) rs.close();
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 System.out.println("Error 4: " + e);
             }
         }
