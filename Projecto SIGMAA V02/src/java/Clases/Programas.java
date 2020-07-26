@@ -7,6 +7,7 @@ package Clases;
  */
 public class Programas {
 
+    private int id_programa;
     private String nombre_Programa;
     private String modalidad;
     private int id_facultad;
@@ -14,10 +15,25 @@ public class Programas {
     public Programas() {
     }  
     
-    public Programas(String nombre_Programa, String modalidad, int id_facultad) {
+    public Programas(int id_programa, String nombre_Programa, String modalidad, int id_facultad) {
+        this.id_programa = id_programa;
         this.nombre_Programa = nombre_Programa;
         this.modalidad = modalidad;
         this.id_facultad = id_facultad;
+    }
+    
+    /**
+     * @return the id_programa
+     */
+    public int getId_programa() {
+        return id_programa;
+    }
+
+    /**
+     * @param id_programa the id_facultad to set
+     */
+    public void setId_programa(int id_programa) {
+        this.id_programa = id_programa;
     }
     
     /**

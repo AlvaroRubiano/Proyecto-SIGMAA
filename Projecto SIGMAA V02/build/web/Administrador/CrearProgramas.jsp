@@ -41,7 +41,7 @@
             $('select[name=idcampus]').on('change', function(){
                 $.ajax({
                     type: 'GET',
-                    url: '../seleccionaruncampus',
+                    url: '../seleccionarunafacultad',
                     data: 'codigocampus='+$('select[name=idcampus]').val(),
                     statusCod:{
                         404: function(){
@@ -55,13 +55,18 @@
                         $('select[name=idfacultad] option').remove();
                         var pegados = datos.split(":");
                         
-                        if(datos = ''){
+                        if(datos == ""){
                            $('select[name=idfacultad]').append('<option>La sede no tiene facultades</option>');
                         }else{
+                            var vacio = "Seleccione";
                             for(var i = 0; i < pegados.length-1; i++){
-                                var codigosFacultades = pegados[i].split("-")[0];
-                                var nombresFacultades = pegados[i].split("-")[1];
-                                $('select[name=idfacultad]').append("<option value="+codigosFacultades+">"+nombresFacultades+"</option>");
+                                var codigo = pegados[i].split("-")[0];
+                                var nombre = pegados[i].split("-")[1];
+                                if(i>0){
+                                $('select[name=idfacultad]').append("<option value="+codigo+">"+nombre+"</option>");    
+                                }else{
+                                $('select[name=idfacultad]').append("<option selected>"+vacio+"</option><option value="+codigo+">"+nombre+"</option>");    
+                                }
                             } 
                         }
                         
@@ -72,7 +77,7 @@
         });
                
     </script>
-   <script>
+    <script>
             window.addEventListener('load', function (){
     
             document.getElementById('btnformularioCrear').addEventListener('click', function (){
@@ -98,7 +103,7 @@
                     );
                 }
             );
-        </script> 
+    </script> 
     </head>
     <body>
 
@@ -157,8 +162,7 @@
                                 <% MuestraCampus mc = new MuestraCampus(); %>
                                 <%= mc.getNombreCampus() %>
                             </select>                                                
-                        </div>
-                        
+                        </div>                        
                         <div class="form-group">
                             <select class="custom-select" id="idfacultad" name="idfacultad" >
                                 <option selected disabled value="">Seleccione la facultad</option>  
