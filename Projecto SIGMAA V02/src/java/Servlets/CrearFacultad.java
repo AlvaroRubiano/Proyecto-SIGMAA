@@ -38,14 +38,17 @@ public class CrearFacultad extends HttpServlet {
             String nombre= request.getParameter("nombreFacultad");
             int id = Integer.parseInt(request.getParameter("tipo"));
                        
-            GestionesFacultades registrarfacultad = new GestionesFacultades();
+            GestionesFacultades registrarfacultad = new GestionesFacultades();            
             
             if(registrarfacultad.registraFacultades(nombre, id)){
-                response.sendRedirect("Administrador/ModuloAdministracion.jsp");
-            }else
-                response.sendRedirect("Administrador/index.jsp");
+               response.sendRedirect("Administrador/ModuloAdministracion.jsp");  
+            }else{
+               response.sendRedirect("Administrador/index.jsp"); 
+            }          
                         
-        }finally{
+        }catch (IOException e) {
+                    out.print("Error en la creación de la facultad 1: " + e);
+            }finally{
             out.close();            
         }
         

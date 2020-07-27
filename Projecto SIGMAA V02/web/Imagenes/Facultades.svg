@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW 2019 (64-Bit) -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="33mm" height="38mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-viewBox="0 0 3300 3800"
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="40mm" height="40mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 4000 4000"
  xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs>
-  <font id="FontID0" horiz-adv-x="540" font-variant="normal" class="str2" style="fill-rule:nonzero" font-weight="400">
+  <font id="FontID0" horiz-adv-x="540" font-variant="normal" class="str2" style="fill-rule:nonzero" font-style="normal" font-weight="400">
 	<font-face 
 		font-family="Britannic Bold">
 		<font-face-src>
@@ -25,28 +25,29 @@ viewBox="0 0 3300 3800"
   </font>
   <style type="text/css">
    <![CDATA[
-    @font-face { font-family:"Britannic Bold";font-variant:normal;font-weight:normal;src:url("#FontID0") format(svg)}
-    .str2 {stroke-width:23.62;stroke-miterlimit:22.9256}
-    .str1 {stroke:#FEFEFE;stroke-width:20;stroke-miterlimit:22.9256}
+    @font-face { font-family:"Britannic Bold";font-variant:normal;font-style:normal;font-weight:normal;src:url("#FontID0") format(svg)}
+    .str2 {stroke-width:15.56;stroke-miterlimit:22.9256}
+    .str3 {stroke:#6DBE4F;stroke-width:13.17;stroke-miterlimit:22.9256}
     .str0 {stroke:#6DBE4F;stroke-width:20;stroke-miterlimit:22.9256}
-    .fil1 {fill:#FEFEFE}
+    .str1 {stroke:#FEFEFE;stroke-width:20;stroke-miterlimit:22.9256}
     .fil0 {fill:#6DBE4F}
+    .fil1 {fill:#FEFEFE}
     .fnt0 {font-weight:normal;font-size:846.67px;font-family:'Britannic Bold'}
    ]]>
   </style>
  </defs>
  <g id="Layer_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <g id="_2175660890464">
+  <g id="_2362649697808">
+   <rect class="fil0 str0" x="424.04" y="168.19" width="3192.64" height="3000"/>
    <g>
-    <rect class="fil0 str0" x="441.39" y="68.19" width="2434.91" height="3000"/>
-    <g>
-     <polygon class="fil1 str1" points="562.78,913.2 1651.82,318.67 2754.19,913.2 1658.49,1694.9 889.16,1166.43 889.16,2278.42 735.96,2283.92 732.63,1045.32 "/>
-     <path class="fil1 str1" d="M1105.64 1595.81l552.85 379.84 542.85 -385.35 3.34 853.27c-336.06,497.74 -705.28,495.09 -1105.7,22.02l6.66 -869.78z"/>
-    </g>
+    <polygon class="fil1 str1" points="583.21,1013.2 2011.15,418.67 3456.57,1013.2 2019.89,1794.9 1011.15,1266.43 1011.15,2378.42 810.28,2383.92 805.91,1145.32 "/>
+    <path class="fil1 str1" d="M1295 1695.81l724.89 379.84 711.79 -385.35 4.38 853.27c-440.64,497.74 -924.76,495.09 -1449.79,22.02l8.73 -869.78z"/>
    </g>
-   <g transform="matrix(0.811636 0 0 1 -1304.17 1815.03)">
-    <text x="1650" y="1900"  class="fil0 str0 fnt0">Facultades</text>
+  </g>
+  <g id="_2362649693712">
+   <g transform="matrix(0.811636 0 0 1 -1238.24 1815.02)">
+    <text x="2000" y="2000"  class="fil0 str3 fnt0">Facultades</text>
    </g>
   </g>
  </g>

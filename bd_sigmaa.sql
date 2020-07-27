@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-03-2020 a las 22:29:55
+-- Tiempo de generación: 26-07-2020 a las 02:01:38
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.1
 
@@ -25,25 +25,44 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `administrador`
+--
+
+CREATE TABLE `administrador` (
+  `Id_administrador` bigint(15) NOT NULL,
+  `Nombres` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `Email` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT '827ccb0eea8a706c4c34a16891f84e7b',
+  `Clave` varchar(100) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `administrador`
+--
+
+INSERT INTO `administrador` (`Id_administrador`, `Nombres`, `Email`, `Clave`) VALUES
+(86066225, 'Alvaro Augusto Rubiano Guarnizo', 'arubiano20@estudiantes.areandina.edu.co', '827ccb0eea8a706c4c34a16891f84e7b');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `campus`
 --
 
 CREATE TABLE `campus` (
   `Id_campus` int(11) NOT NULL,
-  `Name_campus` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+  `Name_campus` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `Tipo` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `Direccion` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Estructura de tabla para la tabla `class`
+-- Volcado de datos para la tabla `campus`
 --
 
-CREATE TABLE `class` (
-  `Id_class` int(11) NOT NULL,
-  `Name_class` varchar(50) NOT NULL,
-  `Id_program` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `campus` (`Id_campus`, `Name_campus`, `Tipo`, `Direccion`) VALUES
+(1, 'Bogotá', 'Sede', 'Carrera 14A No.70 A-34'),
+(2, 'Valledupar', 'Sede', 'Transv 22 Bis #4-105'),
+(3, 'Pereira', 'Sede', 'Calle 24 No. 8-55, Risaralda');
 
 -- --------------------------------------------------------
 
@@ -53,17 +72,26 @@ CREATE TABLE `class` (
 
 CREATE TABLE `estudiantes` (
   `Id_estudiante` int(11) NOT NULL,
-  `Name_users` varchar(100) NOT NULL,
-  `Mail_users` varchar(100) NOT NULL,
-  `Phone_users` varchar(10) NOT NULL,
-  `Type_users` varchar(50) NOT NULL,
+  `Name_users` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `Mail_users` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `Phone_users` varchar(10) CHARACTER SET utf8 NOT NULL,
+  `Estado_usuario` varchar(50) CHARACTER SET utf8 NOT NULL,
   `Id_campus` int(11) NOT NULL,
-  `Id_faculty` int(11) NOT NULL,
+  `Id_faculty` int(11) DEFAULT NULL,
   `Id_program` int(11) NOT NULL,
-  `Semestre` varchar(45) NOT NULL,
-  `Modalidad` varchar(45) NOT NULL,
-  `Id_clase` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Semestre` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `Modalidad` varchar(45) CHARACTER SET utf8 DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `estudiantes`
+--
+
+INSERT INTO `estudiantes` (`Id_estudiante`, `Name_users`, `Mail_users`, `Phone_users`, `Estado_usuario`, `Id_campus`, `Id_faculty`, `Id_program`, `Semestre`, `Modalidad`) VALUES
+(457899, 'Jose Prudencio Padilla', 'jose.prudencio@gmail.com', '3203712166', 'activo', 1, 3, 1, '2', 'Presencial'),
+(4343434, 'Mariana Rubiano Marrugo', 'mariana@gmail.com', '3125232577', 'activo', 3, 9, 3, '4', 'Presencial'),
+(45549420, 'Andres Felipe Rubiano Marrugo', 'andresrubiano@gmail.com', '3125232577', 'activo', 2, 8, 2, '2', 'Virtual'),
+(86066225, 'Alvaro Augusto Rubiano Guarnizo', 'rubiano124@gmail.com', '3203712166', 'activo', 1, 3, 1, '9', 'Presencial');
 
 -- --------------------------------------------------------
 
@@ -73,38 +101,67 @@ CREATE TABLE `estudiantes` (
 
 CREATE TABLE `factor_asociado` (
   `Id_factor` int(11) NOT NULL,
-  `Name_factor` varchar(45) NOT NULL,
-  `Observaciones` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Name_factor` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `Observaciones` text CHARACTER SET utf8 DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `factor_asociado`
+--
+
+INSERT INTO `factor_asociado` (`Id_factor`, `Name_factor`, `Observaciones`) VALUES
+(1, 'Laboral', NULL),
+(2, 'Académico', NULL),
+(3, 'Institucional', NULL),
+(4, 'Otros', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `facultad`
+-- Estructura de tabla para la tabla `faculta`
 --
 
-CREATE TABLE `facultad` (
-  `Id_faculty` int(11) NOT NULL,
-  `Name_faculty` varchar(45) NOT NULL,
-  `Id_campus` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `faculta` (
+  `Id` int(11) NOT NULL,
+  `Name` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `IdCampus` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `faculta`
+--
+
+INSERT INTO `faculta` (`Id`, `Name`, `IdCampus`) VALUES
+(1, 'Ciencias Administrativas, EconÃ³micas y Financieras', 1),
+(2, 'Ciencias de la Salud y el Deporte', 1),
+(3, 'DiseÃ±o, ComunicaciÃ³n y Bellas Artes', 1),
+(4, 'Derecho', 1),
+(5, 'EducaciÃ³n', 1),
+(6, 'Ciencias Sociales y Humanas', 1),
+(7, 'IngenierÃ­as y Ciencias BÃ¡sicas', 1),
+(8, 'EducaciÃ³n', 2),
+(9, 'Derecho', 3);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `material`
+-- Estructura de tabla para la tabla `materia`
 --
 
-CREATE TABLE `material` (
-  `Id_material` int(11) NOT NULL,
-  `Name_material` varchar(100) NOT NULL,
-  `Id_tutorias` int(11) NOT NULL,
-  `Id_tutor` int(11) NOT NULL,
-  `Id_class` int(11) NOT NULL,
-  `coment` text NOT NULL,
-  `file` blob NOT NULL,
-  `date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `materia` (
+  `Id_clase` int(11) NOT NULL,
+  `Nombre_clase` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `Id_programa` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `materia`
+--
+
+INSERT INTO `materia` (`Id_clase`, `Nombre_clase`, `Id_programa`) VALUES
+(10, 'Derecho Civil General y Personas', 3),
+(11, 'Arte, Cultura y Sociedad', 1),
+(12, 'Biologia del Desarrollo Humano', 2);
 
 -- --------------------------------------------------------
 
@@ -114,10 +171,20 @@ CREATE TABLE `material` (
 
 CREATE TABLE `programa` (
   `Id_program` int(11) NOT NULL,
-  `Name_program` varchar(45) NOT NULL,
-  `Id_faculty` int(11) NOT NULL,
-  `Id-class` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Name_program` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `Modalidad` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `Id_faculty` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `programa`
+--
+
+INSERT INTO `programa` (`Id_program`, `Name_program`, `Modalidad`, `Id_faculty`) VALUES
+(1, 'Diseño Grafico', 'Presencial', 3),
+(2, 'Licenciatura en Ciencias Sociales', 'Virtual', 8),
+(3, 'Derecho', 'Presencial', 9),
+(18, 'Derecho', 'Presencial', 4);
 
 -- --------------------------------------------------------
 
@@ -127,17 +194,67 @@ CREATE TABLE `programa` (
 
 CREATE TABLE `resultado` (
   `Id_resultado` int(11) NOT NULL,
-  `Fecha` date NOT NULL,
-  `Id_users` int(11) NOT NULL,
-  `Id_tutor` int(11) NOT NULL,
-  `Id_estudiante` int(11) NOT NULL,
-  `Id_tutoria` int(11) NOT NULL,
-  `EstadoAtencion` varchar(45) NOT NULL,
-  `Evidencia` text DEFAULT NULL,
-  `EstadoRemision` varchar(45) NOT NULL,
-  `Remision` text DEFAULT NULL,
-  `Observaciones` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `fecha` date DEFAULT NULL,
+  `asignatura` int(10) DEFAULT NULL,
+  `observaciones` text COLLATE utf8_spanish_ci NOT NULL,
+  `nombre` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `ruta` varchar(100) CHARACTER SET utf8 DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `resultado`
+--
+
+INSERT INTO `resultado` (`Id_resultado`, `fecha`, `asignatura`, `observaciones`, `nombre`, `ruta`) VALUES
+(3, '2020-07-23', 11, 'Se estableciÃ³ comunicaciÃ³n con el estudiante y se realizÃ³ la monitoria. ', 'sesion', 'http://localhost:8080/Projecto_SIGMAA_V02/evidencias/Recibo 1er semestre 2019.pdf');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `semestre`
+--
+
+CREATE TABLE `semestre` (
+  `Id_semestre` int(2) NOT NULL,
+  `nombre` varchar(10) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `semestre`
+--
+
+INSERT INTO `semestre` (`Id_semestre`, `nombre`) VALUES
+(1, 'Primero'),
+(2, 'Segundo'),
+(3, 'Tercero'),
+(4, 'Cuarto'),
+(5, 'Quinto'),
+(6, 'Sexto'),
+(7, 'Septimo'),
+(8, 'Octavo'),
+(9, 'Noveno'),
+(10, 'Decimo'),
+(11, 'No Aplica');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tipotutor`
+--
+
+CREATE TABLE `tipotutor` (
+  `Id_tipo` int(1) NOT NULL,
+  `nombre` varchar(20) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tipotutor`
+--
+
+INSERT INTO `tipotutor` (`Id_tipo`, `nombre`) VALUES
+(1, 'Monitor de aula'),
+(2, 'Monitor académico'),
+(3, 'Administrativo');
 
 -- --------------------------------------------------------
 
@@ -147,37 +264,63 @@ CREATE TABLE `resultado` (
 
 CREATE TABLE `tutorias` (
   `Id_tutorias` int(11) NOT NULL,
-  `Name_tutoria` varchar(50) NOT NULL,
-  `Id_users` int(11) NOT NULL,
-  `Id_class` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `Id_estudiante` int(11) NOT NULL,
+  `Id_programa` int(11) NOT NULL,
+  `semestre` int(11) NOT NULL,
   `Id_factor` int(11) NOT NULL,
   `Id_tutor` int(11) NOT NULL,
-  `Id_estudiante` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `obervaciones` text COLLATE utf8_spanish_ci DEFAULT NULL,
+  `estado` text COLLATE utf8_spanish_ci DEFAULT 'Abierto'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tutorias`
+--
+
+INSERT INTO `tutorias` (`Id_tutorias`, `fecha`, `Id_estudiante`, `Id_programa`, `semestre`, `Id_factor`, `Id_tutor`, `obervaciones`, `estado`) VALUES
+(3, '2020-07-23', 86066225, 1, 2, 2, 4343434, 'Se debe revisar que pasa con el estudiante.', 'Cerrado'),
+(4, '2020-07-25', 457899, 1, 1, 2, 4343434, 'Revisar las notas en las materias. ', 'Abierto');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `users`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `users` (
-  `Id_users` int(11) NOT NULL,
-  `Name_users` varchar(100) NOT NULL,
-  `Mail_users` varchar(100) NOT NULL,
-  `Pass-users` varchar(100) NOT NULL,
-  `Phone_users` varchar(10) NOT NULL,
-  `Tpe_users` varchar(45) NOT NULL,
+CREATE TABLE `usuarios` (
+  `Id_usuario` int(11) NOT NULL,
+  `Name_users` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `Mail_users` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `Pass_users` varchar(100) COLLATE utf8_spanish_ci NOT NULL DEFAULT '12345',
+  `Phone_users` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `Type_users` int(2) NOT NULL,
   `Id_campus` int(11) NOT NULL,
   `Id_faculty` int(11) NOT NULL,
   `Id_program` int(11) NOT NULL,
-  `semestre` varchar(45) DEFAULT NULL,
-  `Modalidad` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `Semestre` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `Modalidad` varchar(45) CHARACTER SET utf8 DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`Id_usuario`, `Name_users`, `Mail_users`, `Pass_users`, `Phone_users`, `Type_users`, `Id_campus`, `Id_faculty`, `Id_program`, `Semestre`, `Modalidad`) VALUES
+(123456, 'Jose Emilio Gutierrez Padilla', 'jose@gmail.com', '12345', '3203712166', 1, 1, 3, 1, '10', 'Presencial'),
+(4343434, 'Mariana Rubiano Marrugo', 'mariana@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '3125232577', 2, 2, 8, 2, '1', 'Presencial'),
+(21212121, 'Andres Felipe Rubiano Marrugo', 'andresrubiano@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '3203712166', 1, 3, 9, 3, '1', 'Presencial'),
+(86066225, 'Alvaro Augusto Rubiano Guarnizo', 'rubiano124@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', '3203712166', 3, 1, 3, 1, '11', 'No Aplica');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `administrador`
+--
+ALTER TABLE `administrador`
+  ADD PRIMARY KEY (`Id_administrador`);
 
 --
 -- Indices de la tabla `campus`
@@ -186,21 +329,10 @@ ALTER TABLE `campus`
   ADD PRIMARY KEY (`Id_campus`);
 
 --
--- Indices de la tabla `class`
---
-ALTER TABLE `class`
-  ADD PRIMARY KEY (`Id_class`),
-  ADD KEY `IdPrograma_idx` (`Id_program`);
-
---
 -- Indices de la tabla `estudiantes`
 --
 ALTER TABLE `estudiantes`
-  ADD PRIMARY KEY (`Id_estudiante`),
-  ADD KEY `IdCampus_idx` (`Id_campus`),
-  ADD KEY `IdFacultad_idx` (`Id_faculty`),
-  ADD KEY `IdPrograma_idx` (`Id_program`),
-  ADD KEY `IdClases_idx` (`Id_clase`);
+  ADD PRIMARY KEY (`Id_estudiante`);
 
 --
 -- Indices de la tabla `factor_asociado`
@@ -209,58 +341,53 @@ ALTER TABLE `factor_asociado`
   ADD PRIMARY KEY (`Id_factor`);
 
 --
--- Indices de la tabla `facultad`
+-- Indices de la tabla `faculta`
 --
-ALTER TABLE `facultad`
-  ADD PRIMARY KEY (`Id_faculty`),
-  ADD KEY `IdCampus_idx` (`Id_campus`);
+ALTER TABLE `faculta`
+  ADD PRIMARY KEY (`Id`);
 
 --
--- Indices de la tabla `material`
+-- Indices de la tabla `materia`
 --
-ALTER TABLE `material`
-  ADD PRIMARY KEY (`Id_material`),
-  ADD KEY `IdUsers_idx` (`Id_tutor`),
-  ADD KEY `IdTutorias_idx` (`Id_tutorias`),
-  ADD KEY `IdClass_idx` (`Id_class`);
+ALTER TABLE `materia`
+  ADD PRIMARY KEY (`Id_clase`);
 
 --
 -- Indices de la tabla `programa`
 --
 ALTER TABLE `programa`
-  ADD PRIMARY KEY (`Id_program`),
-  ADD KEY `Idfaculty_idx` (`Id_faculty`),
-  ADD KEY `Idclass_idx` (`Id-class`);
+  ADD PRIMARY KEY (`Id_program`);
 
 --
 -- Indices de la tabla `resultado`
 --
 ALTER TABLE `resultado`
-  ADD PRIMARY KEY (`Id_resultado`),
-  ADD KEY `IdUser_idx` (`Id_users`),
-  ADD KEY `IdTutor_idx` (`Id_tutor`),
-  ADD KEY `IdEstudiante_idx` (`Id_estudiante`),
-  ADD KEY `IdTutoria_idx` (`Id_tutoria`);
+  ADD PRIMARY KEY (`Id_resultado`);
+
+--
+-- Indices de la tabla `semestre`
+--
+ALTER TABLE `semestre`
+  ADD PRIMARY KEY (`Id_semestre`);
+
+--
+-- Indices de la tabla `tipotutor`
+--
+ALTER TABLE `tipotutor`
+  ADD PRIMARY KEY (`Id_tipo`);
 
 --
 -- Indices de la tabla `tutorias`
 --
 ALTER TABLE `tutorias`
-  ADD PRIMARY KEY (`Id_tutorias`),
-  ADD KEY `IdUsers_idx` (`Id_users`),
-  ADD KEY `IdClass_idx` (`Id_class`),
-  ADD KEY `IdFactor_idx` (`Id_factor`),
-  ADD KEY `IdUser2_idx` (`Id_tutor`),
-  ADD KEY `IdEstudiante_idx` (`Id_estudiante`);
+  ADD PRIMARY KEY (`Id_tutorias`);
 
 --
--- Indices de la tabla `users`
+-- Indices de la tabla `usuarios`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`Id_users`),
-  ADD KEY `IdCampus_idx` (`Id_campus`),
-  ADD KEY `IdFaculty_idx` (`Id_faculty`),
-  ADD KEY `IdProgram_idx` (`Id_program`);
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`Id_usuario`),
+  ADD UNIQUE KEY `Mail_users` (`Mail_users`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -270,104 +397,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `campus`
 --
 ALTER TABLE `campus`
-  MODIFY `Id_campus` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_campus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
--- AUTO_INCREMENT de la tabla `class`
+-- AUTO_INCREMENT de la tabla `faculta`
 --
-ALTER TABLE `class`
-  MODIFY `Id_class` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `faculta`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `facultad`
+-- AUTO_INCREMENT de la tabla `materia`
 --
-ALTER TABLE `facultad`
-  MODIFY `Id_faculty` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `material`
---
-ALTER TABLE `material`
-  MODIFY `Id_material` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `materia`
+  MODIFY `Id_clase` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `programa`
 --
 ALTER TABLE `programa`
-  MODIFY `Id_program` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_program` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT de la tabla `tipotutor`
+--
+ALTER TABLE `tipotutor`
+  MODIFY `Id_tipo` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tutorias`
 --
 ALTER TABLE `tutorias`
-  MODIFY `Id_tutorias` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `class`
---
-ALTER TABLE `class`
-  ADD CONSTRAINT `ProgramasClases` FOREIGN KEY (`Id_program`) REFERENCES `programa` (`Id_program`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `estudiantes`
---
-ALTER TABLE `estudiantes`
-  ADD CONSTRAINT `CampusEstudiantes` FOREIGN KEY (`Id_campus`) REFERENCES `campus` (`Id_campus`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `ClasesEstudiantes` FOREIGN KEY (`Id_clase`) REFERENCES `class` (`Id_class`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FacultadesEstudiantes` FOREIGN KEY (`Id_faculty`) REFERENCES `facultad` (`Id_faculty`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `ProgramasEstudiantes` FOREIGN KEY (`Id_program`) REFERENCES `programa` (`Id_program`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `facultad`
---
-ALTER TABLE `facultad`
-  ADD CONSTRAINT `CampusFacultad` FOREIGN KEY (`Id_campus`) REFERENCES `campus` (`Id_campus`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `material`
---
-ALTER TABLE `material`
-  ADD CONSTRAINT `ClasesMaterial` FOREIGN KEY (`Id_class`) REFERENCES `class` (`Id_class`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `TutoriasMaterial` FOREIGN KEY (`Id_tutorias`) REFERENCES `tutorias` (`Id_tutorias`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `UsersMaterial` FOREIGN KEY (`Id_tutor`) REFERENCES `users` (`Id_users`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `programa`
---
-ALTER TABLE `programa`
-  ADD CONSTRAINT `ClasesPrograma` FOREIGN KEY (`Id-class`) REFERENCES `class` (`Id_class`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FacultadPrograma` FOREIGN KEY (`Id_faculty`) REFERENCES `facultad` (`Id_faculty`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `resultado`
---
-ALTER TABLE `resultado`
-  ADD CONSTRAINT `EstudianteResultado` FOREIGN KEY (`Id_estudiante`) REFERENCES `estudiantes` (`Id_estudiante`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `TutorResultado` FOREIGN KEY (`Id_tutor`) REFERENCES `users` (`Id_users`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `TutoriaResultado` FOREIGN KEY (`Id_tutoria`) REFERENCES `tutorias` (`Id_tutorias`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `UserResultado` FOREIGN KEY (`Id_users`) REFERENCES `users` (`Id_users`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `tutorias`
---
-ALTER TABLE `tutorias`
-  ADD CONSTRAINT `ClasesTutorias` FOREIGN KEY (`Id_class`) REFERENCES `class` (`Id_class`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `EstudianteTutorias` FOREIGN KEY (`Id_estudiante`) REFERENCES `estudiantes` (`Id_estudiante`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FactorTurorias` FOREIGN KEY (`Id_factor`) REFERENCES `factor_asociado` (`Id_factor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `TutorTutorias` FOREIGN KEY (`Id_tutor`) REFERENCES `users` (`Id_users`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `UsersTutorias` FOREIGN KEY (`Id_users`) REFERENCES `users` (`Id_users`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Filtros para la tabla `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `CampusUsers` FOREIGN KEY (`Id_campus`) REFERENCES `campus` (`Id_campus`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `FacultadUsers` FOREIGN KEY (`Id_faculty`) REFERENCES `facultad` (`Id_faculty`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `ProgramaUsers` FOREIGN KEY (`Id_program`) REFERENCES `programa` (`Id_program`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  MODIFY `Id_tutorias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

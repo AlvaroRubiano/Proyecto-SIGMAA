@@ -25,22 +25,17 @@ public class SeleccinaCampus extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        String name = request.getParameter("codigocampus");
-        int cd_campus = Integer.parseInt(request.getParameter("codigocampus"));
+        int Idcampus = Integer.parseInt(request.getParameter("codigocampus"));
         
         String htmlcode2 = "";
         
         GestionesProgramas glf = new GestionesProgramas();
         
-        for(FacultadCampus f : glf.getFacultadCampus()) {
-            if(f.getId_campus()== cd_campus){
-               htmlcode2 += f.getId_facultad()+"-"+f.getNombre_facultad()+":";  
-            }
-            
-        }
-        
+        for(FacultadCampus f : glf.getFacultadCampus(Idcampus)) {            
+            htmlcode2 += f.getId_facultad()+"-"+f.getNombre_facultad()+":"; 
+                        
+        }        
         out.write(htmlcode2.toString());
-        
         
     }
      

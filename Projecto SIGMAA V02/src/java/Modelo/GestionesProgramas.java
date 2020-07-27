@@ -2,9 +2,12 @@
 package Modelo;
 
 import Clases.FacultadCampus;
+import Clases.Programas;
+import Clases.ProgramaEstudainte;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -13,7 +16,7 @@ import java.util.ArrayList;
  */
 public class GestionesProgramas extends Conexion{
     
-    //Metodo para crear las facultades
+    //Metodo para crear los programas
     public boolean registraProgramas (String nombre, String modalidad, int idFacultad){
         PreparedStatement pst = null;
         
@@ -43,27 +46,27 @@ public class GestionesProgramas extends Conexion{
     }
     
     //Metodo para mostrar la lista de campus registrados
-    public ArrayList<FacultadCampus> getFacultadCampus(){
+    public ArrayList<FacultadCampus> getFacultadCampus(int x){
         
         ArrayList<FacultadCampus> facultadescampus = new ArrayList<>();
-        com.mysql.jdbc.PreparedStatement pst = null;
+        PreparedStatement pst = null;
         ResultSet rs = null;
-               
+        
         try {
-            String consulta = "SELECT campus.Id_campus, campus.Name_campus, facultad.Id_faculty, facultad.Name_faculty FROM facultad, campus WHERE facultad.Id_campus  = campus.Id_campus";
-            pst = pst =(com.mysql.jdbc.PreparedStatement) getConexion().prepareStatement(consulta);
+            String consulta = "SELECT * FROM faculta WHERE faculta.IdCampus="+x;
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
             rs = pst.executeQuery();
             
             while(rs.next()){
                 facultadescampus.add(new FacultadCampus(
-                        rs.getInt("campus.Id_campus"),
-                        rs.getString("campus.Name_campus"),
-                        rs.getInt("facultad.Id_faculty"),
-                        rs.getString("facultad.Name_faculty")
-                ));
-            }
+                        rs.getInt("faculta.Id"),
+                        rs.getString("faculta.Name"),
+                        rs.getInt("faculta.IdCampus")
+                )                        
+                        );
+                        }
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
         }finally{
             try {
                 
@@ -75,23 +78,126 @@ public class GestionesProgramas extends Conexion{
         return facultadescampus;
     }    
     
-    
-    //Prueba de funcionamiento del Metodo para mostrar la lista de facultades y campus registrados.
-    /*
-    public static void main(String[] args ){
+    //Metodo para mostrar la lista de programas registrados
+    public ArrayList<Programas> getProgramas(int x){
         
-        GestionesProgramas gfc = new GestionesProgramas();
-       
-        for(FacultadCampus c : gfc.getFacultadCampus()){
+        ArrayList<Programas> programas = new ArrayList<>();
+        PreparedStatement pst = null;
+        ResultSet rs = null;               
+        try {
+            String consulta = "SELECT * FROM programa WHERE programa.Id_faculty="+x;
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
+            rs = pst.executeQuery();
             
-            if(c.getId_campus()== 3){
-                System.out.println(c.getId_facultad()+" / "+ c.getNombre_facultad());
-        
+            while(rs.next()){
+                programas.add(new Programas(
+                        rs.getInt("Id_program"),
+                        rs.getString("Name_program"),
+                        rs.getString("Modalidad"),
+                        rs.getInt("Id_faculty")
+                ));
+            }            
+        } catch (SQLException e) {
+        }finally{
+            try {
+                
+            } catch (Exception e2) {
+                System.out.println("Error de cierre" + e2 );
             }
-        }
+        }        
+        return programas;
     }
     
-    */
+    //Metodo para mostrar la lista de programas asociados a los estudiantes
+    public ArrayList<ProgramaEstudainte> getProgramasEstudiantes(int x){
+        
+        ArrayList<ProgramaEstudainte> programas = new ArrayList<>();
+        PreparedStatement pst = null;
+        ResultSet rs = null;               
+        try {
+            String consulta = "SELECT programa.Id_program, programa.Name_program FROM programa, estudiantes WHERE estudiantes.Id_program=programa.Id_program AND estudiantes.Id_estudiante="+x;
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
+            rs = pst.executeQuery();
+            
+            while(rs.next()){
+                programas.add(new ProgramaEstudainte(
+                        rs.getInt("programa.Id_program"),
+                        rs.getString("programa.Name_program")
+                ));
+            }            
+        } catch (SQLException e) {
+        }finally{
+            try {
+                
+            } catch (Exception e2) {
+                System.out.println("Error de cierre" + e2 );
+            }
+        }        
+        return programas;
+    }
+    
+    
+    //Metodo para mostrar la lista de programas registrados
+    public ArrayList<Programas> getListaProgramas(){
+        
+        ArrayList<Programas> programas = new ArrayList<>();
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+               
+        try {
+            String consulta = "SELECT * FROM programa";
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
+            rs = pst.executeQuery();
+            
+            while(rs.next()){
+                programas.add(new Programas(
+                        rs.getInt("Id_program"),
+                        rs.getString("Name_program"),
+                        rs.getString("Modalidad"),
+                        rs.getInt("Id_faculty")
+                ));
+            }
+            
+        } catch (SQLException e) {
+        }finally{
+            try {
+                
+            } catch (Exception e2) {
+                System.out.println("Error de cierre" + e2 );
+            }
+        }        
+        return programas;
+    }
+    //Prueba de funcionamiento del Metodo para mostrar la lista de programas.
+    
+//    public static void main(String[] args ){
+//        
+//        GestionesProgramas gfc = new GestionesProgramas();
+//       
+//        for(Programas c : gfc.getProgramas(9)){
+//            
+//            System.out.println(c.getNombre_Programa()+" / "+ c.getModalidad()+" / "+c.getId_facultad());
+//        
+//        }
+//    }
+    
+    
+    
+    
+    //Prueba de funcionamiento del Metodo para mostrar la lista de facultades y campus registrados.
+//    
+//    public static void main(String[] args ){
+//        
+//        GestionesProgramas gfc = new GestionesProgramas();
+//       
+//        for(FacultadCampus c : gfc.getFacultadCampus(2)){
+//            
+//                System.out.println(c.getId_facultad()+" / "+ c.getNombre_facultad());
+//                           
+//        }
+//    }
+    
+    
     
     
     //Metodo para probar el Metodo para crear las facultades
