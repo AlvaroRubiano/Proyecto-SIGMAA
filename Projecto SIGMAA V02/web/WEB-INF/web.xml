@@ -117,10 +117,6 @@
         <servlet-class>Servlets.CrearTutorias</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Prueba</servlet-name>
-        <servlet-class>Servlets.Prueba</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ConsultaTutorias</servlet-name>
         <servlet-class>Servlets.ConsultaTutorias</servlet-class>
     </servlet>
@@ -163,6 +159,22 @@
     <servlet>
         <servlet-name>ConsultaMonitoriasTutor</servlet-name>
         <servlet-class>Servlets.ConsultaMonitoriasTutor</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PdfMonitores</servlet-name>
+        <servlet-class>Servlets.PdfMonitores</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PdfMonitoresAula</servlet-name>
+        <servlet-class>Servlets.PdfMonitoresAula</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PdfMonitoresAcademicos</servlet-name>
+        <servlet-class>Servlets.PdfMonitoresAcademicos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PdfMonitoriasPendientes</servlet-name>
+        <servlet-class>Servlets.PdfMonitoriasPendientes</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>InicioAdministrador</servlet-name>
@@ -277,10 +289,6 @@
         <url-pattern>/creartutorias</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Prueba</servlet-name>
-        <url-pattern>/prueba</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ConsultaTutorias</servlet-name>
         <url-pattern>/consultatutorias</url-pattern>
     </servlet-mapping>
@@ -324,9 +332,25 @@
         <servlet-name>ConsultaMonitoriasTutor</servlet-name>
         <url-pattern>/consultamonitoriasmonitores</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PdfMonitores</servlet-name>
+        <url-pattern>/pdfMonitores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PdfMonitoresAula</servlet-name>
+        <url-pattern>/pdfMonitoresAula</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PdfMonitoresAcademicos</servlet-name>
+        <url-pattern>/pdfMonitoresAcademicos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PdfMonitoriasPendientes</servlet-name>
+        <url-pattern>/pdfMonitoriasPendientes</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            15
         </session-timeout>
     </session-config>
 </web-app>

@@ -126,7 +126,7 @@
                         <div class="col-2">
                             <div class="form-group text-center">
                             <label for="validationCustom04">Acción</label><br>                            
-                            <button value="1" type="submit" name="btnCerrarOPE" id="btnCerrarOPE" class="btn btn-outline-primary" data-toggle="tooltip" title="Cerrar caso"><i class="fa fa-check" aria-hidden="true"></i></button>
+                            <button type="submit" name="btnCerrarOPE" id="btnCerrarOPE" class="btn btn-outline-primary" data-toggle="tooltip" title="Cerrar caso"><i class="fa fa-check" aria-hidden="true"></i></button>
                             </div> 
                         </div>
                     </div>

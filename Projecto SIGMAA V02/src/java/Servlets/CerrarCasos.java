@@ -39,8 +39,8 @@ public class CerrarCasos extends HttpServlet {
         PreparedStatement pst = null;
         ResultSet rs = null;        
         
-        int caso = Integer.parseInt(request.getParameter("caso"));       
-        //'Abierto'
+        int caso = Integer.parseInt(request.getParameter("caso"));
+        //out.print(caso);
         try {
             String consulta = "UPDATE tutorias SET estado='Cerrado' WHERE Id_tutorias="+caso;
             pst = (PreparedStatement) conexion.getConexion().prepareStatement(consulta);

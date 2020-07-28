@@ -73,7 +73,7 @@
                 </div> 
                 <div class="container">
                     <div class="table-responsive content-center row d-flex justify-content-center">
-                        <table id="tablaTutorias" class="table table-bordered table-striped table-hover" style="width:50%">
+                        <table id="tablaTutorias" class="table table-bordered table-striped table-hover" style="width:75%">
                             
                             <thead class="text-center">
                                 <tr>
@@ -84,27 +84,45 @@
                             <tbody >
                                 <tr>
                                     <th>Monitores de Académicos</th>
-                                    <th class="text-center"><%= gl.cantMonitorAcademico() %></th>    
+                                    <th class="text-center"><%= gl.cantMonitorAcademico() %></th>
+                                    <form action="../pdfMonitoresAcademicos">
+                                        <th><input type="submit" class="w-100 btn btn-primary" value="Monitores Académicos"></th>
+                                    </form>
                                 </tr>
                                 <tr>
                                     <th>Monitores de aula</th>
                                     <th class="text-center"><%= gl.cantMonitorAula() %></th>
+                                    <form action="../pdfMonitoresAula">
+                                        <th><input type="submit" class="w-100 btn btn-primary" value="Monitores de Aula"></th>
+                                    </form>
                                 </tr>    
                                 <tr>
                                     <th>Tutorias registradas</th>
                                     <th class="text-center"><%= gl.cantTutorias() %></th>
+                                    <form action="GraficaMonitorias.jsp">
+                                        <th><input type="submit" class="w-100 btn btn-primary" value="Monitorias Registradas"></th>
+                                    </form>
                                 </tr>    
                                 <tr>
                                     <th>Tutorias Resueltas</th>
                                     <th class="text-center"><%= gl.cantTutoriasRealizadas() %></th>
+                                    <form action="../pdfMonitores">
+                                        <th><input type="submit" class="w-100 btn btn-primary" value="Monitorias Realizadas"></th>
+                                    </form>
                                 </tr>    
                                 <tr>
                                     <th>Tutorias pendientes por resolver</th>
                                     <th class="text-center"><%= gl.cantTutoriasPendientes() %></th>
+                                    <form action="../pdfMonitoriasPendientes">
+                                        <th><input type="submit" class="w-100 btn btn-primary" value="Monitorias Pendientes"></th>
+                                    </form>
                                 </tr>
                                 <tr>
                                     <th>Estudiantes Registrados</th>
                                     <th class="text-center"><%= gl.cantEstudiantesRegistrados() %></th>
+                                    <form action="GraficaEstudiantes.jsp">
+                                        <th><input type="submit" class="w-100 btn btn-primary" value="Monitorias por Programas"></th>
+                                    </form>
                                 </tr>
                             </tbody>                                
                         </table>

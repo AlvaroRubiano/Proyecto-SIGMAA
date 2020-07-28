@@ -29,7 +29,46 @@ public class GestionesTutorias extends Conexion{
             String consulta = "SELECT tutorias.Id_tutorias, tutorias.fecha, estudiantes.Name_users, tutorias.Id_programa, tutorias.semestre, tutorias.Id_factor, tutorias.Id_tutor, tutorias.obervaciones, tutorias.estado "
                     + "FROM tutorias, estudiantes "
                     + "WHERE tutorias.Id_estudiante=estudiantes.Id_estudiante";
-            pst = pst =(PreparedStatement) getConexion().prepareStatement(consulta);
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
+            rs = pst.executeQuery();
+            
+            while(rs.next()){
+                tutorias.add(new Tutorias(
+                        rs.getInt("tutorias.Id_tutorias"),
+                        rs.getDate("tutorias.fecha"),                        
+                        rs.getString("estudiantes.Name_users"),
+                        rs.getInt("tutorias.Id_programa"),
+                        rs.getInt("tutorias.semestre"),
+                        rs.getInt("tutorias.Id_factor"),
+                        rs.getInt("tutorias.Id_tutor"),   
+                        rs.getString("tutorias.obervaciones"), 
+                        rs.getString("tutorias.estado") 
+                ));
+            }
+        } catch (SQLException e) {
+        }finally{
+            try {
+                
+            } catch (Exception e2) {
+                System.out.println("Error de cierre" + e2 );
+            }
+        }
+        
+        return tutorias;
+    }
+    
+     //Metodo para mostrar la lista de campus registrados
+    public ArrayList<Tutorias> getTutoriasCasosActivos(){
+        
+        ArrayList<Tutorias> tutorias = new ArrayList<>();
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+               
+        try {
+            String consulta = "SELECT tutorias.Id_tutorias, tutorias.fecha, estudiantes.Name_users, tutorias.Id_programa, tutorias.semestre, tutorias.Id_factor, tutorias.Id_tutor, tutorias.obervaciones, tutorias.estado "
+                    + "FROM tutorias, estudiantes "
+                    + "WHERE tutorias.Id_estudiante=estudiantes.Id_estudiante AND tutorias.estado=\"Abierto\"";
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
             rs = pst.executeQuery();
             
             while(rs.next()){

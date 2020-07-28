@@ -17,7 +17,7 @@ public class MuestraInforme {
     public String getListaCasos(){        
         String htmlcode = "";        
         GestionesTutorias gt = new GestionesTutorias();      
-        for (Tutorias t : gt.getTutorias()) {                       
+        for (Tutorias t : gt.getTutoriasCasosActivos()) {                       
             htmlcode += "<option value='"+t.getId()+"'>"+t.getEstudiante()+"</option> ";            
         }return htmlcode;        
     }

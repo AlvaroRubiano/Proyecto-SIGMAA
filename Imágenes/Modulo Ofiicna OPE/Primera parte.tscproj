@@ -7,9 +7,9 @@
   "version" : "0.5",
   "editRate" : 30,
   "authoringClientName" :  {
-    "name" : "",
-    "platform" : "",
-    "version" : ""
+    "name" : "Camtasia Studio",
+    "platform" : "Windows",
+    "version" : "9.0"
   },
   "sourceBin" : [
     {
@@ -29,14 +29,32 @@
           "metaData" : "Rec 07-27-20 4.trec;"
         }
       ]
+    },
+    {
+      "id" : 2,
+      "src" : "C:\\Users\\Alvaro\\Documents\\Camtasia Studio\\Rec 07-28-20.trec",
+      "rect" : [0, 0, 1304, 768],
+      "lastMod" : "20200728T125223",
+      "sourceTracks" : [
+        {
+          "range" : [0, 13384],
+          "type" : 0,
+          "editRate" : 30,
+          "trackRect" : [0, 0, 1304, 768],
+          "sampleRate" : 17,
+          "bitDepth" : 0,
+          "numChannels" : 0,
+          "metaData" : "Rec 07-28-20.trec;"
+        }
+      ]
     }
   ],
   "timeline" : {
-    "id" : 2,
+    "id" : 3,
     "sceneTrack" : {
       "scenes" : [
         {
-          "duration" : 585.866666666667,
+          "duration" : 905.466666666667,
           "title" : "",
           "type" : "",
           "csml" : {
@@ -45,7 +63,86 @@
                 "trackIndex" : 0,
                 "medias" : [
                   {
-                    "id" : 3,
+                    "id" : 4,
+                    "_type" : "ScreenVMFile",
+                    "src" : 2,
+                    "trackNumber" : 0,
+                    "attributes" : {
+                      "ident" : "Rec 07-28-20"
+                    },
+                    "parameters" : {
+                      "cursorScale" : {
+                        "type" : "double",
+                        "defaultValue" : 1.0,
+                        "interp" : "linr"
+                      },
+                      "cursorOpacity" : {
+                        "type" : "double",
+                        "defaultValue" : 1.0,
+                        "interp" : "linr"
+                      }
+                    },
+                    "effects" : [
+
+                    ],
+                    "start" : 13902,
+                    "duration" : 9739,
+                    "mediaStart" : 0,
+                    "mediaDuration" : 9739,
+                    "scalar" : 1,
+                    "metadata" : {
+                      "AutoAppliedSmartFocus" : "False",
+                      "WinSubProjectDisplayName" : "",
+                      "clipSpeedAttribute" : false
+                    },
+                    "animationTracks" : {
+
+                    }
+                  },
+                  {
+                    "id" : 5,
+                    "_type" : "ScreenVMFile",
+                    "src" : 2,
+                    "trackNumber" : 0,
+                    "attributes" : {
+                      "ident" : "Rec 07-28-20"
+                    },
+                    "parameters" : {
+                      "cursorScale" : {
+                        "type" : "double",
+                        "defaultValue" : 1.0,
+                        "interp" : "linr"
+                      },
+                      "cursorOpacity" : {
+                        "type" : "double",
+                        "defaultValue" : 1.0,
+                        "interp" : "linr"
+                      }
+                    },
+                    "effects" : [
+
+                    ],
+                    "start" : 23641,
+                    "duration" : 3523,
+                    "mediaStart" : 9861,
+                    "mediaDuration" : 3523,
+                    "scalar" : 1,
+                    "metadata" : {
+                      "AutoAppliedSmartFocus" : "False",
+                      "WinSubProjectDisplayName" : "",
+                      "clipSpeedAttribute" : false
+                    },
+                    "animationTracks" : {
+
+                    }
+                  }
+                ]
+              },
+              {
+                "trackIndex" : 1,
+                "medias" : [
+                  {
+                    "id" : 6,
                     "_type" : "ScreenVMFile",
                     "src" : 1,
                     "trackNumber" : 0,
@@ -68,9 +165,9 @@
 
                     ],
                     "start" : 0,
-                    "duration" : 17576,
+                    "duration" : 13902,
                     "mediaStart" : 0,
-                    "mediaDuration" : 17576,
+                    "mediaDuration" : 13902,
                     "scalar" : 1,
                     "metadata" : {
                       "AutoAppliedSmartFocus" : "False",
@@ -84,7 +181,7 @@
                 ]
               },
               {
-                "trackIndex" : 1,
+                "trackIndex" : 2,
                 "medias" : [
                 ]
               }
@@ -94,6 +191,15 @@
       ]
     },
     "trackAttributes" : [
+      {
+        "ident" : "",
+        "audioMuted" : false,
+        "videoHidden" : false,
+        "metadata" : {
+          "IsLocked" : "False",
+          "WinTrackHeight" : "56"
+        }
+      },
       {
         "ident" : "",
         "audioMuted" : false,
@@ -129,10 +235,14 @@
     "backgroundColor" : [ 0, 0, 0, 255]
   },
   "metadata" : {
-    "CanvasZoom" : 50,
+    "AutoSaveFile" : "C:\\Users\\Alvaro\\AppData\\Local\\TechSmith\\Camtasia Studio\\9.0\\Auto-Saves\\Primera parte23e5310b.autosave.tscproj",
+    "CanvasZoom" : 35,
+    "Date" : "2020-07-28 07:32:07 a.m.",
     "Fit" : 0,
     "IsAutoSave" : "0",
+    "ProfileName" : "MP4 only (up to 1080p)",
     "ProjectDimensionsChanged" : "1",
+    "Title" : "Primera parte",
     "audioNarrationNotes" : "",
     "calloutStyle" : "Basic",
     "canvasDetached" : "False",

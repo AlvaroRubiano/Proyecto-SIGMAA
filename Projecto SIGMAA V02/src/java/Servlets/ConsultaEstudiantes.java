@@ -5,14 +5,13 @@
  */
 package Servlets;
 
-import Clases.Estudiante;
+
 import Modelo.Conexion;
 import com.mysql.jdbc.PreparedStatement;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,7 +42,9 @@ public class ConsultaEstudiantes extends HttpServlet {
         ResultSet rs = null;
         
         try {
-            String consulta = "SELECT estudiantes.Id_estudiante, estudiantes.Name_users, estudiantes.Mail_users, estudiantes.Phone_users, estudiantes.Estado_usuario, campus.Name_campus, faculta.Name, programa.Name_program, estudiantes.Semestre, estudiantes.Modalidad FROM estudiantes, campus, faculta, programa WHERE estudiantes.Id_campus = campus.Id_campus AND faculta.Id=estudiantes.Id_faculty AND programa.Id_program=estudiantes.Id_program;";
+            String consulta = "SELECT estudiantes.Id_estudiante, estudiantes.Name_users, estudiantes.Mail_users, estudiantes.Phone_users, estudiantes.Estado_usuario, campus.Name_campus, faculta.Name, programa.Name_program, estudiantes.Semestre, estudiantes.Modalidad "
+                    + "FROM estudiantes, campus, faculta, programa "
+                    + "WHERE estudiantes.Id_campus = campus.Id_campus AND faculta.Id=estudiantes.Id_faculty AND programa.Id_program=estudiantes.Id_program";
             pst =(PreparedStatement) conexion.getConexion().prepareStatement(consulta);
             rs = pst.executeQuery(consulta);
             

@@ -46,7 +46,7 @@ public class ConsultaEvidencias extends HttpServlet {
         try {
             String consulta = "SELECT tutorias.Id_tutorias, estudiantes.Name_users, factor_asociado.Name_factor, usuarios.Name_users, tutorias.obervaciones, resultado.observaciones, resultado.nombre, resultado.ruta "
                     + "FROM tutorias, estudiantes, factor_asociado, usuarios, resultado "
-                    + "WHERE tutorias.Id_estudiante=estudiantes.Id_estudiante AND tutorias.Id_factor=factor_asociado.Id_factor AND tutorias.Id_tutor=usuarios.Id_usuario AND tutorias.Id_tutorias=resultado.Id_resultado;";
+                    + "WHERE tutorias.Id_estudiante=estudiantes.Id_estudiante AND tutorias.Id_factor=factor_asociado.Id_factor AND tutorias.Id_tutor=usuarios.Id_usuario AND tutorias.Id_tutorias=resultado.Id_resultado AND tutorias.estado=\"Abierto\";";
             pst =(PreparedStatement) conexion.getConexion().prepareStatement(consulta);
             rs = pst.executeQuery();
             
