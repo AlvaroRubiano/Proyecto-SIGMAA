@@ -41,6 +41,14 @@ public class MuestraListas {
             htmlcode += "<option value='"+f.getId()+"'>"+f.getNombre()+"</option> ";            
         }return htmlcode;        
     }
+    
+    public String getListaTipoUsuario(){        
+        String htmlcode = "";        
+        GestionesListas gl = new GestionesListas();        
+        for (TipoMonitor f : gl.getUsuario()) {                       
+            htmlcode += "<option value='"+f.getId()+"'>"+f.getNombre()+"</option> ";            
+        }return htmlcode;        
+    }
 
     public String getListaProgramas(){        
         String htmlcode = "";        

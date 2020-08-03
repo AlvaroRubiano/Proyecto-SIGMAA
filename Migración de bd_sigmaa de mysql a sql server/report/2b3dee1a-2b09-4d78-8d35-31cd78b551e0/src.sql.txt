@@ -1,0 +1,12 @@
+CREATE TABLE `tutorias` (
+  `Id_tutorias` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` date NOT NULL,
+  `Id_estudiante` int(11) NOT NULL,
+  `Id_programa` int(11) NOT NULL,
+  `semestre` int(11) NOT NULL,
+  `Id_factor` int(11) NOT NULL,
+  `Id_tutor` int(11) NOT NULL,
+  `obervaciones` text COLLATE utf8_spanish_ci DEFAULT NULL,
+  `estado` text COLLATE utf8_spanish_ci DEFAULT 'Abierto',
+  PRIMARY KEY (`Id_tutorias`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci

@@ -1,0 +1,6 @@
+CREATE TABLE `materia` (
+  `Id_clase` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre_clase` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `Id_programa` int(11) NOT NULL,
+  PRIMARY KEY (`Id_clase`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci

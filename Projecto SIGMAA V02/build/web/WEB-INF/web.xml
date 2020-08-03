@@ -164,6 +164,29 @@
         <servlet-name>ConsultaMonitoriasTutor</servlet-name>
         <servlet-class>Servlets.ConsultaMonitoriasTutor</servlet-class>
     </servlet>
+<<<<<<< Updated upstream
+=======
+    <servlet>
+        <servlet-name>PdfMonitores</servlet-name>
+        <servlet-class>Servlets.PdfMonitores</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PdfMonitoresAula</servlet-name>
+        <servlet-class>Servlets.PdfMonitoresAula</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PdfMonitoresAcademicos</servlet-name>
+        <servlet-class>Servlets.PdfMonitoresAcademicos</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PdfMonitoriasPendientes</servlet-name>
+        <servlet-class>Servlets.PdfMonitoriasPendientes</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CrearMonitores</servlet-name>
+        <servlet-class>Servlets.CrearMonitores</servlet-class>
+    </servlet>
+>>>>>>> Stashed changes
     <servlet-mapping>
         <servlet-name>InicioAdministrador</servlet-name>
         <url-pattern>/Administrador</url-pattern>
@@ -324,6 +347,29 @@
         <servlet-name>ConsultaMonitoriasTutor</servlet-name>
         <url-pattern>/consultamonitoriasmonitores</url-pattern>
     </servlet-mapping>
+<<<<<<< Updated upstream
+=======
+    <servlet-mapping>
+        <servlet-name>PdfMonitores</servlet-name>
+        <url-pattern>/pdfMonitores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PdfMonitoresAula</servlet-name>
+        <url-pattern>/pdfMonitoresAula</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PdfMonitoresAcademicos</servlet-name>
+        <url-pattern>/pdfMonitoresAcademicos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PdfMonitoriasPendientes</servlet-name>
+        <url-pattern>/pdfMonitoriasPendientes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrearMonitores</servlet-name>
+        <url-pattern>/crearmonitores</url-pattern>
+    </servlet-mapping>
+>>>>>>> Stashed changes
     <session-config>
         <session-timeout>
             30

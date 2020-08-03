@@ -92,13 +92,13 @@ public class GestionesAdministrador extends Conexion{
                 return true;
             }          
            
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error 3: " + e);
         }finally{
             try {
                 if(getConexion() != null) getConexion().close();
                 if(pst != null) pst.close();                
-            } catch (Exception e) {
+            } catch (SQLException e) {
                 System.out.println("Error 4: " + e);
             }
         }
@@ -107,7 +107,7 @@ public class GestionesAdministrador extends Conexion{
         
     //Main para verificar el metodo de autenticación para el administrador.
 //    public static void main(String[] args) {
-//        Consultas co = new Consultas();
+//        GestionesAdministrador co = new GestionesAdministrador();
 //        System.out.println(co.autenticacion("arubiano20@estudiantes.areandina.edu.co", "12345"));
 //    }    
     

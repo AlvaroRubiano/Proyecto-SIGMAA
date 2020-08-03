@@ -41,7 +41,7 @@ public class ConsultaUsuario extends HttpServlet {
         ResultSet rs = null;
         
         try {
-            String consulta = "SELECT usuarios.Id_usuario, usuarios.Name_users, usuarios.Mail_users, usuarios.Phone_users, tipotutor.nombre, campus.Name_campus, faculta.Name, programa.Name_program, usuarios.Semestre, usuarios.Modalidad FROM usuarios, campus, faculta, programa, tipotutor WHERE usuarios.Id_campus=campus.Id_campus AND usuarios.Id_faculty=faculta.Id AND usuarios.Id_program=programa.Id_program AND usuarios.Type_users=tipotutor.Id_tipo;";
+            String consulta = "SELECT usuarios.Id_usuario, usuarios.Name_users, usuarios.Mail_users, usuarios.Phone_users, tipotutor.nombre, campus.Name_campus, faculta.Name, programa.Name_program, usuarios.Semestre, usuarios.Modalidad FROM usuarios, campus, faculta, programa, tipotutor WHERE usuarios.Id_campus=campus.Id_campus AND usuarios.Id_faculty=faculta.Id AND usuarios.Id_program=programa.Id_program AND usuarios.Type_users=tipotutor.Id_tipo AND usuarios.Type_users=1 OR usuarios.Type_users=2;";
             pst =(PreparedStatement) conexion.getConexion().prepareStatement(consulta);
             rs = pst.executeQuery(consulta);
             

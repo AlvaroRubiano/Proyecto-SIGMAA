@@ -51,6 +51,7 @@
                                         <a class="dropdown-item" href="CrearProgramas.jsp">Programas</a>
                                         <a class="dropdown-item" href="CrearMaterias.jsp">Materias</a>
                                         <a class="dropdown-item" href="CrearEstudiantes.jsp">Estudiantes</a>
+                                        <a class="dropdown-item" href="CrearMonitores.jsp">Monitores</a>
                                         <a class="dropdown-item" href="CrearUsuarios.jsp">Usuarios</a>
                                     </div>
                                 </li>
@@ -87,7 +88,7 @@
 <%-- Cuerpo de la página --%>
             <div class="card-body" id="body_administrador">
                 <div class="card text-center">
-                    <h1>Zona de consultas</h1>
+                    <h1>Administrador TI</h1>
                 </div>  
                                 
                 <div class="container">

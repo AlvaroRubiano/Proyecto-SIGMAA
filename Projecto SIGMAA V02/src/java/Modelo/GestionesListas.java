@@ -82,7 +82,7 @@ public class GestionesListas extends Conexion {
         return semestre;
     }
     
-    //Metodo para mostrar la lista de semestres
+    //Metodo para mostrar la lista de tipo de monitor
     public ArrayList<TipoMonitor> getMonitor(){
         
         ArrayList<TipoMonitor> monitor = new ArrayList<>();
@@ -90,8 +90,8 @@ public class GestionesListas extends Conexion {
         ResultSet rs = null;
         
         try {
-            String consulta = "SELECT * FROM tipotutor";
-            pst = pst =(PreparedStatement) getConexion().prepareStatement(consulta);
+            String consulta = "SELECT * FROM tipotutor WHERE Id_tipo=1 OR Id_tipo=2";
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
             rs = pst.executeQuery();
             
             while (rs.next()) {
@@ -110,7 +110,37 @@ public class GestionesListas extends Conexion {
             }
         }
         return monitor;
-    }  
+    } 
+    
+    //Metodo para mostrar la lista de usuario administrativo
+    public ArrayList<TipoMonitor> getUsuario(){
+        
+        ArrayList<TipoMonitor> monitor = new ArrayList<>();
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        
+        try {
+            String consulta = "SELECT * FROM tipotutor WHERE Id_tipo=3 OR Id_tipo=4";
+            pst =(PreparedStatement) getConexion().prepareStatement(consulta);
+            rs = pst.executeQuery();
+            
+            while (rs.next()) {
+                monitor.add(new TipoMonitor(
+                        rs.getInt("Id_tipo"),
+                        rs.getString("nombre")                        
+                ));                
+            }  
+        } catch (SQLException e) {
+                System.out.println("Error de cierre" + e );
+        }finally{
+            try {
+                
+            } catch (Exception e2) {
+                System.out.println("Error de cierre" + e2 );
+            }
+        }
+        return monitor;
+    }
     
     public String cantMonitorAula(){
        PreparedStatement pst = null;

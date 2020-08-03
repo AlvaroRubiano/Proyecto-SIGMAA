@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="col-sm-7 text-center">
-                    <h1>Tutorias y Monitorias</h1>
+                    <h1>Ingreso de Usuarios del Sistema</h1>
                 </div>
             </div>  
         </div>

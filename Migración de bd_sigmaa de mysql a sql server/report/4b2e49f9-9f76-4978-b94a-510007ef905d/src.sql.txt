@@ -1,0 +1,6 @@
+CREATE TABLE `faculta` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `IdCampus` int(11) NOT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci

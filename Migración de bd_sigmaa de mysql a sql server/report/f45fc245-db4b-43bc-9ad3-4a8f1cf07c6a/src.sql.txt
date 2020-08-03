@@ -1,0 +1,13 @@
+CREATE TABLE `estudiantes` (
+  `Id_estudiante` int(11) NOT NULL,
+  `Name_users` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `Mail_users` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `Phone_users` varchar(10) CHARACTER SET utf8 NOT NULL,
+  `Estado_usuario` varchar(50) CHARACTER SET utf8 NOT NULL,
+  `Id_campus` int(11) NOT NULL,
+  `Id_faculty` int(11) DEFAULT NULL,
+  `Id_program` int(11) NOT NULL,
+  `Semestre` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `Modalidad` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  PRIMARY KEY (`Id_estudiante`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci

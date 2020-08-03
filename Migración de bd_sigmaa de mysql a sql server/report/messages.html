@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <Meta content="IE=EmulateIE9" http-equiv="X-UA-Compatible"></Meta>
+    <Meta content="text/html;charset=UTF-8" http-equiv="Content-Type"></Meta>
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/messages.js"></script>
+    <link media="all" rel="stylesheet" type="text/css" href="css/messages.css"></link>
+  </head>
+  <body STYLE="width:100%;" onload="javascript:init();reloadSavedRequisites();" scroll="no" onresize="buttonStatusReset();init();">
+    <table width="100%" height="10px" cellpadding="0" cellspacing="0">
+      <tr valign="middle">
+        <td align="center">
+          <table width="52px" height="9px" cellpadding="0" cellspacing="0" style="cursor:pointer; background-repeat: no-repeat" onmouseover="this.style.backgroundImage=&#39;url(img/expander_button.gif)&#39;;" onmouseout="this.style.backgroundImage=&#39;none&#39;;" onclick="this.style.backgroundImage=&#39;none&#39;;Expand()">
+            <tr valign="middle">
+              <td id="expander_td" name="expander_td" style="cursor:pointer; background-repeat: no-repeat; background-position:center; background-image: url(&#39;img/expander_arrow_down.gif&#39;)"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <div id="mainDiv" STYLE="height:100%;width:100%;">
+      <div class="panel">
+        <ul class="add-nav">
+          <li>
+            <span disabled="disabled" style="color:gray;" class="unSelectedTab" id="errors">
+              <img src="img/error.gif" width="14" height="14"></img>
+              <span id="espan">Error (0)</span>
+            </span>
+          </li>
+          <li>
+            <a onclick="changeButton(2);" role="button" href="#" aria-label="Display warning conversion messages">
+              <span class="selectedTab" id="warnings">
+                <img src="img/warning.gif" width="14" height="14"></img>
+                <span id="wspan">Warning (10)</span>
+              </span>
+            </a>
+          </li>
+          <li>
+            <a onclick="changeButton(3);" role="button" href="#" aria-label="Display informational conversion messages">
+              <span class="unSelectedTab" id="infos">
+                <img src="img/info.gif" width="14" height="14"></img>
+                <span id="ispan">Info (12)</span>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <span style="top:8px; position:absolute;width:400px;font-family:Arial;font-size:14px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total estimated manual conversion time:
+          <span style="color:firebrick;top:0px; position:absolute;" id="etime">5 hr(s)</span>
+        </span>
+      </div>
+      <div id="innerDiv" style="HEIGHT: 194px; OVERFLOW-Y: auto">
+        <div id="errorDiv" style="DISPLAY: block">
+          <table dataSrc="#errorData" id="errorTable" class="unSelectedTable"></table>
+        </div>
+        <div id="warningDiv" style="DISPLAY: block">
+          <table dataSrc="#warningData" id="warningTable" class="selectedTable">
+            <tbody>
+              <tr>
+                <td>&nbsp;
+                  <a onclick="toggle(this)" href="#" class="expander-link" role="button" aria-label="M2SS0183 : SQL clause was ignored during conversion (10), estimated manual conversion time: 5 hr(s), collapsed, press Enter to expand">
+                    <img class="tableMinusIcons" src="img/nolines_plus.gif"></img>
+                  </a>
+                  <img class="tableIcons" src="img/warning.gif"></img>
+                  &nbsp;
+                  <span dataFld="description">
+                    <span>M2SS0183</span>
+                    : SQL clause was ignored during conversion (10), estimated manual conversion time: 5 hr(s)</span>
+                  <span dataFld="name" style="DISPLAY: none">1</span>
+                  <table style="DISPLAY: none">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;181be88d-454f-46f8-90e3-8e61e71ea69f&#39;,3);changeSelection(this);">
+                                <img src="img/table_warning.gif"></img>
+                                usuarios (3), estimated manual conversion time: 1.5 hr(s)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;2b3dee1a-2b09-4d78-8d35-31cd78b551e0&#39;,3);changeSelection(this);">
+                                <img src="img/table_warning.gif"></img>
+                                tutorias (2), estimated manual conversion time: 1 hr(s)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;4b2e49f9-9f76-4978-b94a-510007ef905d&#39;,3);changeSelection(this);">
+                                <img src="img/table_warning.gif"></img>
+                                faculta (1), estimated manual conversion time: 0.5 hr(s)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;5040260e-429a-4fbd-b2f1-381c0d2eaaf0&#39;,3);changeSelection(this);">
+                                <img src="img/table_warning.gif"></img>
+                                resultado (1), estimated manual conversion time: 0.5 hr(s)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;847c499e-714f-4186-86d1-f69dbb149a9a&#39;,3);changeSelection(this);">
+                                <img src="img/table_warning.gif"></img>
+                                campus (3), estimated manual conversion time: 1.5 hr(s)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="infoDiv" style="DISPLAY: block">
+          <table dataSrc="#infoData" id="infoTable" class="unSelectedTable">
+            <tbody>
+              <tr>
+                <td>&nbsp;
+                  <a onclick="toggle(this)" href="#" class="expander-link" role="button" aria-label="M2SS0003 : SQL clause was ignored during conversion (12), collapsed, press Enter to expand">
+                    <img class="tableMinusIcons" src="img/nolines_plus.gif"></img>
+                  </a>
+                  <img class="tableIcons" src="img/info.gif"></img>
+                  &nbsp;
+                  <span dataFld="description">
+                    <span>M2SS0003</span>
+                    : SQL clause was ignored during conversion (12)</span>
+                  <span dataFld="name" style="DISPLAY: none">1</span>
+                  <table style="DISPLAY: none">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;0b52139e-8000-4186-8236-9dc923924198&#39;,3);changeSelection(this);">
+                                <img src="img/table_info.gif"></img>
+                                programa (1)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;181be88d-454f-46f8-90e3-8e61e71ea69f&#39;,3);changeSelection(this);">
+                                <img src="img/table_info.gif"></img>
+                                usuarios (1)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;1c129a3c-8194-4325-81d5-d2df9120154c&#39;,3);changeSelection(this);">
+                                <img src="img/table_info.gif"></img>
+                                materia (1)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;22b41168-b9ce-48e6-99a8-69b25a360b8b&#39;,3);changeSelection(this);">
+                                <img src="img/table_info.gif"></img>
+                                tipotutor (1)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;2b3dee1a-2b09-4d78-8d35-31cd78b551e0&#39;,3);changeSelection(this);">
+                                <img src="img/table_info.gif"></img>
+                                tutorias (1)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;4b2e49f9-9f76-4978-b94a-510007ef905d&#39;,3);changeSelection(this);">
+                                <img src="img/table_info.gif"></img>
+                                faculta (1)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;5040260e-429a-4fbd-b2f1-381c0d2eaaf0&#39;,3);changeSelection(this);">
+                                <img src="img/table_info.gif"></img>
+                                resultado (1)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;7ca392f8-b150-425c-ba9f-cffd80d8c29e&#39;,3);changeSelection(this);">
+                                <img src="img/table_info.gif"></img>
+                                administrador (1)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;847c499e-714f-4186-86d1-f69dbb149a9a&#39;,3);changeSelection(this);">
+                                <img src="img/table_info.gif"></img>
+                                campus (1)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;94aa8fe9-a777-4a4e-a46e-69ac0f7950c6&#39;,3);changeSelection(this);">
+                                <img src="img/table_info.gif"></img>
+                                factor_asociado (1)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;b0ee9465-6a0e-4ba7-98cf-5c2dd1975d61&#39;,3);changeSelection(this);">
+                                <img src="img/table_info.gif"></img>
+                                semestre (1)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div>
+                            <div style="CURSOR: pointer; POSITION: relative; LEFT: 43px">
+                              <a href="#" role="button" onclick="pathTo(&#39;f45fc245-db4b-43bc-9ad3-4a8f1cf07c6a&#39;,3);changeSelection(this);">
+                                <img src="img/table_info.gif"></img>
+                                estudiantes (1)</a>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+CREATE TABLE `resultado` (
+  `Id_resultado` int(11) NOT NULL,
+  `fecha` date DEFAULT NULL,
+  `asignatura` int(10) DEFAULT NULL,
+  `observaciones` text COLLATE utf8_spanish_ci NOT NULL,
+  `nombre` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
+  `ruta` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  PRIMARY KEY (`Id_resultado`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci

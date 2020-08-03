@@ -46,7 +46,8 @@
                                         Crear
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="../OficinaOPE/CrearUsuarios.jsp">Tutores</a>
+                                        <a class="dropdown-item" href="../OficinaOPE/CrearUsuarios.jsp">Usurios</a>
+                                        <a class="dropdown-item" href="../OficinaOPE/CrearMonitores.jsp">Monitores</a>
                                         <a class="dropdown-item" href="../OficinaOPE/CrearEstudiantes.jsp">Estudiantes</a>                                        
                                         <a class="dropdown-item" href="../OficinaOPE/CrearTutorias.jsp">Tutorias</a>                                        
                                     </div>
@@ -81,7 +82,7 @@
 <%-- Cuerpo de la página --%>
             <div class="card-body">                
                 <div class="card text-center">
-                    <h1>Consulta para Orientadores</h1>
+                    <h1>Orientación y Permanencia</h1>
                 </div>
                 <div class="container">                    
                     <div class="row justify-content-md-center">

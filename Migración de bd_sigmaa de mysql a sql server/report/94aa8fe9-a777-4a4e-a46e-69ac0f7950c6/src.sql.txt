@@ -1,0 +1,6 @@
+CREATE TABLE `factor_asociado` (
+  `Id_factor` int(11) NOT NULL,
+  `Name_factor` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `Observaciones` text CHARACTER SET utf8 DEFAULT NULL,
+  PRIMARY KEY (`Id_factor`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci

@@ -68,7 +68,7 @@
 <%-- Cuerpo de la página --%>
             <div class="card-body" id="body_administrador">
                 <div class="card text-center">
-                    <h1>Zona de monitores</h1>
+                    <h1>Tutores y Monitores</h1>
                 </div>                  
                 <div class="container">
                     <div class="row justify-content-md-center">

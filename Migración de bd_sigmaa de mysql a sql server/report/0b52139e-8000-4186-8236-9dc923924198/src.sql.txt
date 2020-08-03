@@ -1,0 +1,7 @@
+CREATE TABLE `programa` (
+  `Id_program` int(11) NOT NULL AUTO_INCREMENT,
+  `Name_program` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `Modalidad` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `Id_faculty` int(11) NOT NULL,
+  PRIMARY KEY (`Id_program`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci

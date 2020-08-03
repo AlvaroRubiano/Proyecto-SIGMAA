@@ -1,0 +1,5 @@
+CREATE TABLE `semestre` (
+  `Id_semestre` int(2) NOT NULL,
+  `nombre` varchar(10) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`Id_semestre`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci

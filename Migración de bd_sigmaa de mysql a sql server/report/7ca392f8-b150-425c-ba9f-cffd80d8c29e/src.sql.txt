@@ -1,0 +1,7 @@
+CREATE TABLE `administrador` (
+  `Id_administrador` bigint(15) NOT NULL,
+  `Nombres` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `Email` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT '827ccb0eea8a706c4c34a16891f84e7b',
+  `Clave` varchar(100) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`Id_administrador`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci

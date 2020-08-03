@@ -1,0 +1,15 @@
+CREATE TABLE `usuarios` (
+  `Id_usuario` int(11) NOT NULL,
+  `Name_users` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `Mail_users` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `Pass_users` varchar(100) COLLATE utf8_spanish_ci NOT NULL DEFAULT '827ccb0eea8a706c4c34a16891f84e7b',
+  `Phone_users` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `Type_users` int(2) NOT NULL,
+  `Id_campus` int(11) NOT NULL,
+  `Id_faculty` int(11) NOT NULL,
+  `Id_program` int(11) NOT NULL,
+  `Semestre` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `Modalidad` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  PRIMARY KEY (`Id_usuario`),
+  UNIQUE KEY `Mail_users` (`Mail_users`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci

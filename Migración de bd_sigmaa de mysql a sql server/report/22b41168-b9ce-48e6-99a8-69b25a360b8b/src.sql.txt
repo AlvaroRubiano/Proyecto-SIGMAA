@@ -1,0 +1,5 @@
+CREATE TABLE `tipotutor` (
+  `Id_tipo` int(1) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(20) CHARACTER SET utf8 NOT NULL,
+  PRIMARY KEY (`Id_tipo`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci
